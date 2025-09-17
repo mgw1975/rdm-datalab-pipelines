@@ -1,0 +1,17 @@
+# data
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+
+# outputs
+outputs/*
+!outputs/.gitkeep
+
+# notebooks
+**/.ipynb_checkpoints/
+
+# system
+.DS_Store
+*.pyc
+__pycache__/
