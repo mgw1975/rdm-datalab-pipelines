@@ -1,0 +1,27 @@
+{
+  "definitions": [
+    {
+      "name": "industry_code",
+      "description": "NAICS-based code (2\u20136 digits)",
+      "declared_type": "text",
+      "max_length": 6
+    },
+    {
+      "name": "own_code",
+      "description": "Ownership code (0,1,2,3,5,8)",
+      "declared_type": "integer",
+      "allowed_values": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        8
+      ]
+    }
+  ],
+  "options": {
+    "top_k": 10,
+    "enum_threshold": 60
+  }
+}

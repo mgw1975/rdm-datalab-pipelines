@@ -1,0 +1,16 @@
+{
+  "definitions": [],
+  "options": {
+    "top_k": 10,
+    "enum_threshold": 60,
+    "autofill_definitions": true
+  },
+  "dataset_context": {
+    "title": "ABS 2022 - CA Counties by NAICS2",
+    "source": "Census ABS",
+    "domain": "US business",
+    "year": 2022,
+    "geography": "County",
+    "keywords": ["NAICS", "FIPS", "payroll"]
+  }
+}

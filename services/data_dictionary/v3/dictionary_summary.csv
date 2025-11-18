@@ -1,0 +1,13 @@
+name,definition,autofill_source,autofill_confidence,declared_type,observed_type,distinct,missing_pct,min,p50,max,examples,notes
+NAME,"Geographic area name (e.g., county or state).",preset:abs,0.95,,object,58,0.0,,,,"Alameda County, California, Alpine County, California, Amador County, California",Enum candidate (low cardinality)
+GEO_ID,"Census geographic identifier (e.g., 0500000USssccc for counties).",preset:abs,0.95,,object,58,0.0,,,,"0500000US06001, 0500000US06003, 0500000US06005",Enum candidate (low cardinality)
+NAICS2022,2022 NAICS industry code (2–6 digits).,preset:abs,0.95,,object,21,0.0,,,,"00, 11, 21",Enum candidate (low cardinality)
+NAICS2022_LABEL,Industry title for NAICS2022 code.,preset:abs,0.95,,object,21,0.0,,,,"Total for all sectors, Agriculture, forestry, fishing and hunting, Mining, quarrying, and oil and gas extraction",Enum candidate (low cardinality)
+INDLEVEL,"Industry aggregation level indicator (e.g., 2-digit sector).",preset:abs,0.95,,int64,1,0.0,2,2.0,2,2,Enum candidate (low cardinality)
+FIRMPDEMP,Count of firms with paid employees.,preset:abs,0.95,,int64,545,0.0,0,69.5,247882,"33444, 25, 12",
+EMP,Number of paid employees.,preset:abs,0.95,,int64,805,0.0,0,1046.5,4453819,"1232378, 99, 240",
+PAYANN,Annual payroll (USD).,preset:abs,0.95,,int64,863,0.0,0,61411.5,299814637,"89536503, 9839, 19953",
+RCPPDEMP,Receipts or revenue per paid employees (context-specific ABS metric).,preset:abs,0.95,,int64,831,0.0,0,222993.0,1789798050,"328624659, 55222, 111883",
+INDLEVEL.1,,,,,int64,1,0.0,2,2.0,2,2,Enum candidate (low cardinality)
+state,State FIPS code (2-digit).,preset:abs,0.95,,int64,1,0.0,6,6.0,6,6,Enum candidate (low cardinality)
+county,County FIPS code (3-digit).,preset:abs,0.95,,int64,58,0.0,1,59.0,115,"1, 3, 5",Enum candidate (low cardinality)

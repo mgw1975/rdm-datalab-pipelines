@@ -1,0 +1,63 @@
+RDM Datalab Naming Conventions — Words & Abbreviation Pairs
+
+This document lists standardized word → abbreviation pairs to be used for all column names
+and table schemas across the RDM Datalab project.
+
+-------------------------------------------
+Core Identifiers
+-------------------------------------------
+state_fips        -> state
+county_fips       -> county
+fips_code         -> fips
+naics_2digit      -> naics2
+year              -> year
+
+-------------------------------------------
+Economic Measures (ABS / QCEW / BEA)
+-------------------------------------------
+firms             -> firms
+employment        -> emp
+employees         -> emp
+establishments    -> est
+payroll           -> payroll_usd
+wages             -> wages_usd
+receipts          -> receipts_usd
+gdp               -> gdp_usd
+
+-------------------------------------------
+Unit Conversions
+-------------------------------------------
+usd_thousands     -> usd        # ABS conversion
+wages_per_employee -> wage_per_emp_usd
+receipts_per_firm -> receipts_per_firm_usd
+
+-------------------------------------------
+Environmental (EPA TRI / GHGRP)
+-------------------------------------------
+total_releases_lbs -> releases_lbs
+co2e_emissions_mt  -> co2e_mt
+facility_count     -> facilities
+
+-------------------------------------------
+Metadata Flags
+-------------------------------------------
+source_file       -> src_file
+ingestion_time    -> ingest_ts
+update_time       -> update_ts
+suppressed        -> suppressed_flag
+
+-------------------------------------------
+Crosswalks / Lookups
+-------------------------------------------
+line_code         -> line_cd
+bea_sector_code   -> bea_sector_cd
+bea_sector_desc   -> bea_sector_desc
+
+-------------------------------------------
+General Patterns
+-------------------------------------------
+*_num             -> numeric count or value
+*_cd              -> code field
+*_usd             -> dollar-denominated metric
+*_flag            -> boolean flag
+*_ts              -> timestamp

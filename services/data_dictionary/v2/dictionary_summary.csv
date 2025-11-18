@@ -1,0 +1,13 @@
+name,definition,declared_type,observed_type,distinct,missing_pct,min,p50,max,examples,notes
+NAME,,,object,58,0.0,,,,"Alameda County, California, Alpine County, California, Amador County, California",Enum candidate (low cardinality)
+GEO_ID,,,object,58,0.0,,,,"0500000US06001, 0500000US06003, 0500000US06005",Enum candidate (low cardinality)
+NAICS2022,,,object,21,0.0,,,,"00, 11, 21",Enum candidate (low cardinality)
+NAICS2022_LABEL,,,object,21,0.0,,,,"Total for all sectors, Agriculture, forestry, fishing and hunting, Mining, quarrying, and oil and gas extraction",Enum candidate (low cardinality)
+INDLEVEL,,,int64,1,0.0,2.0,2.0,2.0,2,Enum candidate (low cardinality)
+FIRMPDEMP,,,int64,545,0.0,0.0,69.5,247882.0,"33444, 25, 12",
+EMP,,,int64,805,0.0,0.0,1046.5,4453819.0,"1232378, 99, 240",
+PAYANN,,,int64,863,0.0,0.0,61411.5,299814637.0,"89536503, 9839, 19953",
+RCPPDEMP,,,int64,831,0.0,0.0,222993.0,1789798050.0,"328624659, 55222, 111883",
+INDLEVEL.1,,,int64,1,0.0,2.0,2.0,2.0,2,Enum candidate (low cardinality)
+state,,,int64,1,0.0,6.0,6.0,6.0,6,Enum candidate (low cardinality)
+county,,,int64,58,0.0,1.0,59.0,115.0,"1, 3, 5",Enum candidate (low cardinality)
