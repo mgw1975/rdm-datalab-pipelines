@@ -38,12 +38,15 @@ Dashboards are built in **Looker Studio, Tableau, and Python**.
 
 ## 🏗️ Current Technical Architecture
 
-### **1. Programming Environment**
-- **Python** for ingestion, cleaning, transformation  
-- **Pandas / NumPy** for shaping data  
-- **BigQuery** as the central warehouse  
-- **Looker Studio** as primary visualization layer  
-- **dbt (planned)** for model standardization  
+### **1. Layered Architecture**
+| Layer | Tools | Responsibilities |
+|-------|-------|------------------|
+| **Source & Cleansing** | Python, Pandas | Pull data from ABS/QCEW/BEA/TRI APIs or downloads, normalize raw fields (FIPS, NAICS, currency units), run source-specific sanity checks, and write CSVs to Cloud Storage. |
+| **Normalization & Naming** | BigQuery | Load raw files, enforce canonical column names/types, maintain reference tables (NAICS, FIPS), and create SQL transformations that align schemas (`portfolio_data.*`). |
+| **Metric & Merge Logic** | BigQuery (+ dbt planned) | Join ABS/QCEW/BEA/TRI on standardized keys (`state_fips_cd`, `county_fips_cd`, `naics2_sector_cd`, `yr_num`), compute derived metrics (wages per employee, GDP per employee, TRI intensity), and materialize fact tables/views ready for analytics. |
+| **Visualization** | Looker Studio | Point dashboards at curated BigQuery tables/views, handle filters, KPI tiles, and comparisons; keep business logic out of the dashboard layer. |
+
+Guidance: perform API-heavy or schema-wrangling tasks in Python; keep shared naming/joins in BigQuery where they are auditable and performant; limit Looker Studio to presentation logic.
 
 ### **2. Directory Structure (Recommended)**
 
