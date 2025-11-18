@@ -5,7 +5,7 @@ Clean BEA CAGDP2 (county GDP by industry) into a tidy CSV ready for loading.
 Usage:
     python scripts/bea/gdp_bea.py \
         --bea_raw data_raw/bea/CAGDP2__ALL_AREAS_2001_2023.csv \
-        --out data_clean/abs/bea_cagdp2_county_linecode_2022.csv
+        --out data_clean/abs/gdp_bea.csv
 """
 
 import argparse
