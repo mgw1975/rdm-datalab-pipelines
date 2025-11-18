@@ -1,8 +1,23 @@
-# data
+# data (legacy layout)
 data/raw/*
 data/interim/*
 data/processed/*
 !data/**/.gitkeep
+
+# new data landing zones (committed files limited to docs/gitkeep)
+data_raw/**
+!data_raw/.gitkeep
+!data_raw/**/.gitkeep
+!data_raw/**/README.md
+
+data_clean/**
+!data_clean/.gitkeep
+!data_clean/**/.gitkeep
+!data_clean/**/README.md
+
+# misc staging
+misc/archives/**
+misc/untitled.txt
 
 # outputs
 outputs/*
