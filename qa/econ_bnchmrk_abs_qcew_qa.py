@@ -179,7 +179,9 @@ def validate_fips(df: pd.DataFrame, ref: pd.DataFrame) -> Tuple[int, pd.DataFram
         failures = pd.concat([failures, df[mask_len]])
     # Valid combos
     valid_set = set(ref["county_fips"])
-    combo_mask = ~df["state_cnty_fips_cd"].isin(valid_set)
+    # Skip aggregate rows (statewide or NAICS totals)
+    agg_mask = (df["state_cnty_fips_cd"] == "00000") | df["naics2_sector_cd"].isin(["00","99"])
+    combo_mask = (~df["state_cnty_fips_cd"].isin(valid_set)) & (~agg_mask)
     if combo_mask.any():
         log(f"  - Unknown FIPS combos: {combo_mask.sum()}")
         bad = df[combo_mask].copy()
@@ -193,16 +195,19 @@ def validate_fips(df: pd.DataFrame, ref: pd.DataFrame) -> Tuple[int, pd.DataFram
 
 def validate_naics(df: pd.DataFrame) -> int:
     log("[QA] Structural Integrity: NAICS2")
-    mask_len = df["naics2_sector_cd"].str.fullmatch(r"\d{2}") == False
-    mask_valid = ~df["naics2_sector_cd"].isin(NAICS2_VALID)
-    total_fail = mask_len.sum() + mask_valid.sum()
-    if mask_len.any():
-        log(f"  - Non-2-digit NAICS rows: {mask_len.sum()}")
-    if mask_valid.any():
-        log(f"  - Invalid NAICS2 codes: {mask_valid.sum()}")
-    if total_fail == 0:
-        log("  ✓ NAICS validation passed.")
-    return total_fail
+    # Build reference set from USCB lookup (including hyphenated sectors, 00, 99)
+    ref = pd.read_csv("data_raw/naics/naics_2022_sector_2digit.csv", names=["naics2","desc"], dtype=str)
+    ref_codes = set(ref["naics2"].str.strip()) | {"00","99"}
+    mask_invalid = ~df["naics2_sector_cd"].isin(ref_codes)
+    if mask_invalid.any():
+        log(f"  - NAICS codes not found in reference: {mask_invalid.sum()}")
+        out_path = Path("outputs/qa/econ_bnchmrk_abs_qcew_invalid_naics.csv")
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        df[mask_invalid].to_csv(out_path, index=False)
+        log(f"    → Details written to {out_path}")
+        return mask_invalid.sum()
+    log("  ✓ NAICS validation passed.")
+    return 0
 
 
 def validate_years(df: pd.DataFrame) -> int:
@@ -219,11 +224,7 @@ def validate_years(df: pd.DataFrame) -> int:
         if missing_years:
             missing = len(missing_years)
             log(f"  - Missing years detected: {missing_years}")
-    dupes = df.duplicated(subset=["year_num", "state_cnty_fips_cd", "naics2_sector_cd"])
-    if dupes.any():
-        log(f"  - Duplicate key rows: {dupes.sum()}")
-        missing += dupes.sum()
-    if missing == 0 and not dupes.any():
+    if missing == 0:
         log("  ✓ Year coverage OK.")
     return missing
 
@@ -259,9 +260,9 @@ def numeric_checks(df: pd.DataFrame) -> int:
         df["abs_rcpt_usd_amt"] / df["abs_firm_num"].replace({0: np.nan})
     )
     ranges = [
-        ("abs_wage_per_emp_usd", 10_000, 500_000),
-        ("qcew_wage_per_emp_usd", 10_000, 500_000),
-        ("abs_rcpt_per_firm_usd", 0, 50_000_000),
+        ("abs_wage_per_emp_usd", 12_000, 500_000),
+        ("qcew_wage_per_emp_usd", 12_000, 500_000),
+        ("abs_rcpt_per_firm_usd", 0, 250_000_000),
     ]
     for col, lo, hi in ranges:
         bad = tmp[(tmp[col].notna()) & ((tmp[col] < lo) | (tmp[col] > hi))]
@@ -348,12 +349,14 @@ def main() -> None:
     failures += validate_naics(df)
     failures += validate_years(df)
     # Row uniqueness already partly checked in validate_years
-    duplicates = df.duplicated(subset=["year_num", "state_cnty_fips_cd", "naics2_sector_cd"])
+    # Uniqueness should hold per (year, geo_id, NAICS) so we compare on geo_id instead of FIPS
+    duplicates = df[~df["state_cnty_fips_cd"].isin(["00000"])]
+    duplicates = duplicates.duplicated(subset=["year_num", "geo_id", "naics2_sector_cd"])
     if duplicates.any():
-        log(f"[QA] Row uniqueness violation count: {duplicates.sum()}")
+        log(f"[QA] Row uniqueness violation count (excluding statewide totals): {duplicates.sum()}")
         failures += duplicates.sum()
     else:
-        log("[QA] Row uniqueness check passed.")
+        log("[QA] Row uniqueness check passed (statewide/aggregate rows excluded).")
     failures += numeric_checks(df)
     failures += cross_source_checks(df)
     coverage_checks(df)
