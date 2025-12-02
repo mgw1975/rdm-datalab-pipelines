@@ -12,5 +12,6 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_2022_
   abs_firm_num              INT64,    -- firm count
   abs_emp_num               INT64,    -- employment count
   abs_payroll_usd_amt       NUMERIC,  -- payroll (USD)
+  abs_rcpt_usd_amt          NUMERIC,  -- total receipts (USD)
   abs_rcpt_per_emp_usd_amt  NUMERIC   -- receipts per employee (USD)
 );
