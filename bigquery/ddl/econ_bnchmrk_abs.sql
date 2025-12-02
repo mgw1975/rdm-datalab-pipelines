@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_2022_abs`
+CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs`
 (
   year_num                  INT64,    -- ABS year
   state_cnty_fips_cd        STRING,   -- 5-digit county FIPS
@@ -7,8 +7,6 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_2022_
   geo_id                    STRING,   -- ABS GEOID
   naics2_sector_desc        STRING,   -- NAICS 2022 sector description
   ind_level_num             INT64,    -- industry level
-  state_fips_cd             STRING,   -- 2-digit state FIPS
-  cnty_fips_cd              STRING,   -- 3-digit county FIPS
   abs_firm_num              INT64,    -- firm count
   abs_emp_num               INT64,    -- employment count
   abs_payroll_usd_amt       NUMERIC,  -- payroll (USD)
