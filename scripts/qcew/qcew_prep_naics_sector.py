@@ -3,21 +3,23 @@
 # -------------------------------------------------------------------
 # Prepare BLS QCEW wages for county × NAICS **sector** × year.
 # Filters:
-#   - agglvl_code == 74  (County, NAICS Sector)
-#   - own_code: prefer '0' (Total). If not present, fallback to '5' (Private).
-#   - area_fips length == 5 (counties only)
+#   - agg_lvl_cd == 73  (county-level NAICS detail; we keep only NAICS2 sectors)
+#   - own_code: prefer '0' (Total). If not present, fallback to '1' (Private).
+#   - state_cnty_fips_cd length == 5 (counties only)
 #
 # Output columns:
 #   state_fips, county_fips, naics_sector, year,
 #   annual_avg_emplvl, total_annual_wages, avg_weekly_wage
 #
 # Usage:
-#   python scripts/qcew_prep_naics_sector.py \
-#       --qcew_raw data/raw/2022_annual_singlefile.csv \
+#   python scripts/qcew/qcew_prep_naics_sector.py \
+#       --qcew_raw data_raw/qcew/2022.annual.singlefile.csv \
 #       --year 2022 \
-#       --out data/processed/qcew_county_naics_sector_2022.csv
+#       --out data_clean/qcew/econ_bnchmrk_qcew.csv
 #
 import argparse
+from typing import Optional
+
 import pandas as pd
 import numpy as np
 
@@ -25,6 +27,32 @@ VALID_SECTORS = {
     "11","21","22","23","31-33","42","44-45","48-49","51","52","53","54",
     "55","56","61","62","71","72","81","92"
 }
+
+def derive_naics2(code: Optional[str]) -> Optional[str]:
+    """
+    Map raw NAICS codes to the canonical sector labels (11, 21, …, 31-33, 44-45, 48-49).
+    Returns None for unsupported codes.
+    """
+    if not isinstance(code, str):
+        return None
+    code = code.strip()
+    if not code or not code[0].isdigit():
+        return None
+    if len(code) == 2 and code.isdigit():
+        base = code
+    else:
+        base = "".join(ch for ch in code if ch.isdigit())[:2]
+        if len(base) < 2:
+            return None
+    if base in {"31", "32", "33"}:
+        return "31-33"
+    if base in {"44", "45"}:
+        return "44-45"
+    if base in {"48", "49"}:
+        return "48-49"
+    if base in {"11","21","22","23","42","51","52","53","54","55","56","61","62","71","72","81","92"}:
+        return base
+    return None
 
 def normalize_qcew_columns(df):
     if df.columns.duplicated().any():
@@ -35,13 +63,13 @@ def normalize_qcew_columns(df):
             if o in lower:
                 return lower[o]
         return None
-    area     = pick("area_fips","area","fips")
-    ind      = pick("industry_code","naics","industry")
-    year_col = pick("year")
-    aemp     = pick("annual_avg_emplvl","annual_avg_employment","annualaverageemployment","annual_avg_emplv")
-    twages   = pick("total_annual_wages","totalannualwages","annual_total_wages","tot_annual_wages")
-    awage    = pick("avg_wkly_wage","avg_weekly_wage","average_weekly_wage","annual_avg_wkly_wage")
-    agglvl   = pick("agglvl_code","agglevel_code","aggregation_level")
+    area     = pick("area_fips","area","fips","state_cnty_fips_cd")
+    ind      = pick("industry_code","naics","industry","indstr_cd")
+    year_col = pick("year","year_num")
+    aemp     = pick("annual_avg_emplvl","annual_avg_employment","annualaverageemployment","annual_avg_emplv","qcew_ann_avg_emp_lvl_num")
+    twages   = pick("total_annual_wages","totalannualwages","annual_total_wages","tot_annual_wages","qcew_ttl_ann_wage_usd_amt")
+    awage    = pick("avg_wkly_wage","avg_weekly_wage","average_weekly_wage","annual_avg_wkly_wage","qcew_avg_wkly_wage_usd_amt")
+    agglvl   = pick("agglvl_code","agglevel_code","aggregation_level","agg_lvl_cd")
     own      = pick("own_code","ownership","own")
     qtr      = pick("qtr","quarter")
     need = [area, ind, year_col, aemp, twages, awage, agglvl]
@@ -51,13 +79,13 @@ def normalize_qcew_columns(df):
             need) if x is None]
         raise ValueError(f"Missing required columns (or synonyms): {missing}")
     df = df.rename(columns={
-        area: "area_fips",
-        ind: "industry_code",
-        year_col: "year",
-        aemp: "annual_avg_emplvl",
-        twages: "total_annual_wages",
-        awage: "avg_weekly_wage",
-        agglvl: "agglvl_code"
+        area: "state_cnty_fips_cd",
+        ind: "indstr_cd",
+        year_col: "year_num",
+        aemp: "qcew_ann_avg_emp_lvl_num",
+        twages: "qcew_ttl_ann_wage_usd_amt",
+        awage: "qcew_avg_wkly_wage_usd_amt",
+        agglvl: "agg_lvl_cd"
     })
     if own:
         df = df.rename(columns={own: "own_code"})
@@ -69,66 +97,63 @@ def prepare_qcew_sector(qdf, year=None, prefer_private_if_total_missing=True):
     df = qdf.copy()
 
     # Year
-    if year is not None and "year" in df.columns:
-        df = df[df["year"].astype(str) == str(year)]
+    if year is not None and "year_num" in df.columns:
+        df = df[df["year_num"].astype(str) == str(year)]
 
     # Annual (if qtr present)
     if "qtr" in df.columns:
         df = df[df["qtr"].astype(str).str.upper().eq("A")]
 
-    # County × NAICS Sector
-    df = df[df["agglvl_code"].astype(str) == "74"]
-
-    # Ownership: prefer 0 (Total). If absent, fallback to 5 (Private).
+   # Ownership: Use private (5) at NAICS-2. Total (0) is not reliably available.
     if "own_code" in df.columns:
-        vals = set(df["own_code"].astype(str).unique())
-        if "0" in vals:
-            df = df[df["own_code"].astype(str) == "0"]
-        elif prefer_private_if_total_missing and "5" in vals:
-            df = df[df["own_code"].astype(str) == "5"]
+        df["own_code"] = df["own_code"].astype(str).str.strip()
+        df = df[df["own_code"] == "5"]
+    else:
+        # If no ownership column exists, assume private-only file (common in many extracts)
+        df["own_code"] = "5"
 
     # Counties only
-    df["area_fips"] = df["area_fips"].astype(str).str.strip()
-    df = df[df["area_fips"].str.len() == 5].copy()
-    df["state_fips"]  = df["area_fips"].str[:2]
-    df["county_fips"] = df["area_fips"].str[2:]
+    df["state_cnty_fips_cd"] = df["state_cnty_fips_cd"].astype(str).str.zfill(5)
+    df = df[df["state_cnty_fips_cd"].str.len() == 5].copy()
 
     # Sector labels
-    df["industry_code"] = df["industry_code"].astype(str)
-    df = df[df["industry_code"].isin(VALID_SECTORS)].copy()
-    df["naics_sector"] = df["industry_code"]
+    df["indstr_cd"] = df["indstr_cd"].astype(str).str.strip()
+    df["naics2_sector_cd"] = df["indstr_cd"].apply(derive_naics2)
+    df = df[df["naics2_sector_cd"].notna()].copy()
 
     # Numerics
-    for c in ["annual_avg_emplvl","total_annual_wages","avg_weekly_wage"]:
+    for c in ["qcew_ann_avg_emp_lvl_num","qcew_ttl_ann_wage_usd_amt","qcew_avg_wkly_wage_usd_amt"]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
-    if "year" in df.columns:
-        df["year"] = pd.to_numeric(df["year"], errors="coerce")
+    if "year_num" in df.columns:
+        df["year_num"] = pd.to_numeric(df["year_num"], errors="coerce")
 
     # Aggregate
-    out = (df.groupby(["state_fips","county_fips","naics_sector","year"], as_index=False)
+    out = (df.groupby(["state_cnty_fips_cd","naics2_sector_cd","year_num","own_code"], as_index=False)
              .agg({
-                 "annual_avg_emplvl":"sum",
-                 "total_annual_wages":"sum"
+                 "qcew_ann_avg_emp_lvl_num":"sum",
+                 "qcew_ttl_ann_wage_usd_amt":"sum"
              }))
-    out["avg_weekly_wage"] = np.where(
-        out["annual_avg_emplvl"] > 0,
-        out["total_annual_wages"] / (out["annual_avg_emplvl"] * 52.0),
+    out["qcew_avg_wkly_wage_usd_amt"] = np.where(
+        out["qcew_ann_avg_emp_lvl_num"] > 0,
+        out["qcew_ttl_ann_wage_usd_amt"] / (out["qcew_ann_avg_emp_lvl_num"] * 52.0),
         np.nan
     )
+    out["qcew_avg_wkly_wage_usd_amt"] = out["qcew_avg_wkly_wage_usd_amt"].replace([np.inf,-np.inf], np.nan).round(2)
+    out["own_cd"] = out["own_code"]
 
     # QA
-    assert out.duplicated(subset=["state_fips","county_fips","naics_sector","year"]).sum() == 0
-    for c in ["annual_avg_emplvl","total_annual_wages"]:
+    assert out.duplicated(subset=["state_cnty_fips_cd","naics2_sector_cd","year_num","own_cd"]).sum() == 0
+    for c in ["qcew_ann_avg_emp_lvl_num","qcew_ttl_ann_wage_usd_amt"]:
         assert (out[c].dropna() >= 0).all()
 
-    return out[["state_fips","county_fips","naics_sector","year",
-                "annual_avg_emplvl","total_annual_wages","avg_weekly_wage"]]
+    return out[["year_num","naics2_sector_cd","state_cnty_fips_cd","own_cd",
+                "qcew_ann_avg_emp_lvl_num","qcew_ttl_ann_wage_usd_amt","qcew_avg_wkly_wage_usd_amt"]]
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--qcew_raw", required=True, help="Path to raw QCEW annual CSV (singlefile recommended)")
+    ap.add_argument("--qcew_raw", required=True, help="Path to raw QCEW annual CSV (singlefile preferred)")
     ap.add_argument("--year", type=int, default=2022, help="Year (default 2022)")
-    ap.add_argument("--out", default="data/processed/qcew_county_naics_sector_2022.csv", help="Output CSV path")
+    ap.add_argument("--out", default="data_clean/qcew/econ_bnchmrk_qcew.csv", help="Output CSV path")
     args = ap.parse_args()
 
     raw = pd.read_csv(args.qcew_raw, dtype=str)
@@ -136,9 +161,9 @@ def main():
 
     # Diagnostics
     diag = {
-        "unique_years": sorted(raw["year"].unique().tolist()) if "year" in raw.columns else None,
-        "agglvl_counts": raw["agglvl_code"].value_counts().to_dict() if "agglvl_code" in raw.columns else None,
-        "own_codes": sorted(raw["own_code"].unique().tolist()) if "own_code" in raw.columns else None
+        "unique_years": sorted(raw["year_num"].astype(str).unique().tolist()) if "year_num" in raw.columns else None,
+        "agglevel_counts": raw["agg_lvl_cd"].value_counts().to_dict() if "agg_lvl_cd" in raw.columns else None,
+        "own_codes": sorted(raw["own_code"].astype(str).unique().tolist()) if "own_code" in raw.columns else None
     }
     print("Diagnostics:", diag)
 
