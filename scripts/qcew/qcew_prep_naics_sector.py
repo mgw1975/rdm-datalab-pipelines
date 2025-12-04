@@ -3,7 +3,7 @@
 # -------------------------------------------------------------------
 # Prepare BLS QCEW wages for county × NAICS **sector** × year.
 # Filters:
-#   - agg_lvl_cd == 73  (county-level NAICS detail; we keep only NAICS2 sectors)
+#   - agg_lvl_cd == 74  (county-level NAICS sector rows)
 #   - own_code: prefer '0' (Total). If not present, fallback to '1' (Private).
 #   - state_cnty_fips_cd length == 5 (counties only)
 #
@@ -115,6 +115,8 @@ def prepare_qcew_sector(qdf, year=None, prefer_private_if_total_missing=True):
     # Counties only
     df["state_cnty_fips_cd"] = df["state_cnty_fips_cd"].astype(str).str.zfill(5)
     df = df[df["state_cnty_fips_cd"].str.len() == 5].copy()
+    if "agg_lvl_cd" in df.columns:
+        df = df[df["agg_lvl_cd"].astype(str) == "74"].copy()
 
     # Sector labels
     df["indstr_cd"] = df["indstr_cd"].astype(str).str.strip()

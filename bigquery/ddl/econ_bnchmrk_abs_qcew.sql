@@ -8,6 +8,8 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
   -- Descriptive
   naics2_sector_desc         STRING,
   cnty_nm                    STRING,
+  state_nm                   STRING,
+  cnty_full_nm               STRING,
   geo_id                     STRING,
   ind_level_num              INT64,
 

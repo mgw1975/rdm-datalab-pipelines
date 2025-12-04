@@ -2,7 +2,7 @@ bq query \
   --use_legacy_sql=false \
   --replace=true \
   '
-CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_qcew` AS
+CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_qcew_rollup` AS
 WITH abs_filtered AS (
   SELECT *
   FROM `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs`
@@ -118,5 +118,5 @@ LEFT JOIN geo_ref AS g
   ON COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd) = g.state_cnty_fips_cd
 LEFT JOIN naics_ref AS n
   ON COALESCE(a.naics2_sector_cd, q.naics2_sector_cd) = n.naics2_sector_cd
-WHERE SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 3, 3) <> "000";
+WHERE SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 3, 3) = "000";
 '

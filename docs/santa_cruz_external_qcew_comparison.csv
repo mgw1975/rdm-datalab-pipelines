@@ -1,0 +1,6 @@
+naics2_sector_cd,qcew_ann_avg_emp_lvl_num,qcew_avg_wkly_wage_usd_amt,sector,bls_emp,bls_avg_pay,qcew_avg_annual_wage,emp_diff
+31-33,26643,1472.9,Manufacturing,7907,85342.0,76590.8,18736
+44-45,52744,776.91,Retail trade,10967,40360.0,40399.32,41777
+54,22372,1845.74,"Professional, scientific, and technical services",4572,95664.0,95978.48,17800
+62,64195,1201.04,Health care and social assistance,15313,69019.0,62454.08,48882
+72,56398,582.73,Accommodation and food services,11613,30207.0,30301.96,44785

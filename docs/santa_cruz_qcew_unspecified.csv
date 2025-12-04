@@ -1,0 +1,20 @@
+naics2_sector_desc,qcew_ann_avg_emp_lvl_num,qcew_avg_wkly_wage_usd_amt
+"Agriculture, forestry, fishing and hunting",2798,1248.98
+"Mining, quarrying, and oil and gas extraction",2178,5076.35
+Utilities,1125,2590.54
+Construction,55251,2089.1
+Manufacturing,91367,3903.14
+Wholesale trade,292607,2943.67
+Retail trade,86579,1645.18
+Transportation and warehousing,42365,1795.08
+Information,151062,3127.62
+Finance and insurance,281077,2648.41
+Real estate and rental and leasing,20365,2311.21
+"Professional, scientific, and technical services",533699,2519.02
+Management of companies and enterprises,41450,3436.67
+Administrative and support and waste management and remediation services,572438,1626.65
+Educational services,45633,1239.42
+Health care and social assistance,95742,2027.74
+"Arts, entertainment, and recreation",24057,2394.55
+Accommodation and food services,21429,1175.93
+Other services (except public administration),29509,1966.32

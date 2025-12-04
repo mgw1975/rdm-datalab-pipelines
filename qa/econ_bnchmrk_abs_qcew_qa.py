@@ -18,10 +18,10 @@ import pandas as pd
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-DATA_PATH = Path("data_clean/integration/portfolio_abs_qcew_ca_county_naics2.csv")
-SIMPLEMAPS_PATH = Path(
-    "data_raw/external/simplemaps/simplemaps_uscounties_basicv1.91/uscounties.csv"
-)
+# Base datasets used for QA
+ABS_PATH = Path("data_clean/abs/econ_bnchmrk_abs.csv")
+QCEW_PATH = Path("data_clean/qcew/econ_bnchmrk_qcew.csv")
+SIMPLEMAPS_PATH = Path("data_raw/external/simplemaps/simplemaps_uscounties_basicv1.91/uscounties.csv")
 LOG_PATH = Path("outputs/qa/econ_bnchmrk_abs_qcew_qa.log")
 FIPS_FAIL_PATH = Path("outputs/qa/econ_bnchmrk_abs_qcew_invalid_fips.csv")
 
@@ -64,32 +64,49 @@ def log(msg: str) -> None:
 
 
 def load_dataset() -> pd.DataFrame:
-    """Load the merged CSV (no header) and assign column names."""
-    log("[LOAD] Reading merged ABS + QCEW CSV …")
-    cols = [
-        "cnty_nm",
-        "geo_id",
-        "naics2_sector_cd",
-        "naics2_sector_desc",
-        "ind_level_num",
-        "abs_firm_num",
-        "abs_emp_num",
-        "abs_payroll_usd_amt",
-        "abs_rcpt_usd_amt",
-        "ind_level_num_dup",
-        "state_fips_cd_raw",
-        "cnty_fips_cd_raw",
-        "naics2_sector_cd_dup",
-        "qcew_ann_avg_emp_lvl_num",
-        "qcew_ttl_ann_wage_usd_amt",
-        "qcew_avg_wkly_wage_usd_amt",
-        "year_num",
-        "state_cnty_fips_cd_raw",
-        "qcew_wage_per_emp_usd",
-        "abs_wage_per_emp_usd",
-        "abs_rcpt_per_firm_usd",
-    ]
-    df = pd.read_csv(DATA_PATH, header=None, names=cols, dtype=str)
+    """Load ABS + QCEW CSVs and merge them with FULL OUTER logic."""
+    log("[LOAD] Reading ABS + QCEW CSVs …")
+    abs_df = pd.read_csv(ABS_PATH, dtype=str)
+    qcew_df = pd.read_csv(QCEW_PATH, dtype=str)
+
+    # Apply same county-level filters used in the ETL
+    abs_df["state_cnty_fips_cd"] = abs_df["state_cnty_fips_cd"].astype(str).str.replace(r"\D", "", regex=True).str.zfill(5)
+    abs_df = abs_df[
+        abs_df["state_cnty_fips_cd"].str.fullmatch(r"\d{5}")
+        & (abs_df["state_cnty_fips_cd"].str[-3:] != "000")
+        & (~abs_df["naics2_sector_cd"].isin(["00", "99"]))
+    ].copy()
+
+    qcew_df["state_cnty_fips_cd"] = qcew_df["state_cnty_fips_cd"].astype(str).str.replace(r"\D", "", regex=True).str.zfill(5)
+    qcew_df = qcew_df[
+        qcew_df["state_cnty_fips_cd"].str.fullmatch(r"\d{5}")
+        & (qcew_df["state_cnty_fips_cd"].str[-3:] != "000")
+        & (~qcew_df["naics2_sector_cd"].isin(["00", "99"]))
+    ].copy()
+    if "own_cd" in qcew_df.columns:
+        qcew_df = qcew_df[qcew_df["own_cd"] == "5"]
+    valid_fips = set(abs_df["state_cnty_fips_cd"])
+    qcew_df = qcew_df[qcew_df["state_cnty_fips_cd"].isin(valid_fips)]
+
+    merge_cols = ["year_num", "state_cnty_fips_cd", "naics2_sector_cd"]
+    merged = abs_df.merge(qcew_df, how="outer", on=merge_cols, suffixes=("", "_qcew"))
+
+    df = pd.DataFrame({
+        "year_num": merged["year_num"],
+        "state_cnty_fips_cd": merged["state_cnty_fips_cd"],
+        "naics2_sector_cd": merged["naics2_sector_cd"],
+        "cnty_nm": merged.get("cnty_nm"),
+        "geo_id": merged.get("geo_id"),
+        "naics2_sector_desc": merged.get("naics2_sector_desc"),
+        "ind_level_num": merged.get("ind_level_num"),
+        "abs_firm_num": merged.get("abs_firm_num"),
+        "abs_emp_num": merged.get("abs_emp_num"),
+        "abs_payroll_usd_amt": merged.get("abs_payroll_usd_amt"),
+        "abs_rcpt_usd_amt": merged.get("abs_rcpt_usd_amt"),
+        "qcew_ann_avg_emp_lvl_num": merged.get("qcew_ann_avg_emp_lvl_num"),
+        "qcew_ttl_ann_wage_usd_amt": merged.get("qcew_ttl_ann_wage_usd_amt"),
+        "qcew_avg_wkly_wage_usd_amt": merged.get("qcew_avg_wkly_wage_usd_amt"),
+    })
 
     # Normalize numeric columns
     numeric_cols = [
@@ -98,25 +115,23 @@ def load_dataset() -> pd.DataFrame:
         "abs_payroll_usd_amt",
         "abs_rcpt_usd_amt",
         "ind_level_num",
-        "ind_level_num_dup",
         "qcew_ann_avg_emp_lvl_num",
         "qcew_ttl_ann_wage_usd_amt",
         "qcew_avg_wkly_wage_usd_amt",
         "year_num",
-        "qcew_wage_per_emp_usd",
-        "abs_wage_per_emp_usd",
-        "abs_rcpt_per_firm_usd",
     ]
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce")
 
     # Build canonical state_cnty_fips_cd (zero-filled 5 digits)
     df["state_cnty_fips_cd"] = (
-        df["state_cnty_fips_cd_raw"]
+        df["state_cnty_fips_cd"]
         .astype(str)
         .str.replace(r"\D", "", regex=True)
         .str.zfill(5)
     )
+    county_mask = df["state_cnty_fips_cd"].str.fullmatch(r"\d{5}") & (df["state_cnty_fips_cd"].str[-3:] != "000")
+    df = df[county_mask].copy()
 
     # Use primary NAICS fields only
     df["naics2_sector_cd"] = df["naics2_sector_cd"].astype(str).str.zfill(2)
