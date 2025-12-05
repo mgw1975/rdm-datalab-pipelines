@@ -79,10 +79,9 @@ def normalize_abs(df: pd.DataFrame) -> pd.DataFrame:
     )
     df = df.loc[:, ~df.columns.duplicated()].copy()
 
-    # The raw feed reports PAYANN/RCPPDEMP in thousands of dollars ($1k).
-    usd_factor = 1000.0
-    df["abs_payroll_usd_amt"] = df["abs_payroll_usd_amt"] * usd_factor
-    df["abs_rcpt_per_emp_usd_amt"] = df["abs_rcpt_per_emp_usd_amt"] * usd_factor
+    # The raw feed reports PAYANN in thousands of dollars ($1k), but RCPPDEMP is already
+    # expressed in dollars per employee.
+    df["abs_payroll_usd_amt"] = df["abs_payroll_usd_amt"] * 1000.0
     df["abs_rcpt_usd_amt"] = df["abs_rcpt_per_emp_usd_amt"] * df["abs_emp_num"]
 
     # Build the canonical 5-digit FIPS string (state + county).

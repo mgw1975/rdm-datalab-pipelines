@@ -1,0 +1,342 @@
+﻿Year,Sector,FIPS Code,County,State,Avg Annual Wage,Employment,Firms,Payroll,Payroll per Employee,Receipts,Receipts per Employee,Employment (QCEW),Avg Annual Wage,Avg Wage (QCEW)
+2022,Retail Trade,09999,"Connecticut (unspecified county), Connecticut",Connecticut,85800.878787879,null,null,null,null,null,null,1320,85800.878787879,85800.878787879
+2022,Accommodation and Food Services,09999,"Connecticut (unspecified county), Connecticut",Connecticut,55294.185922975,null,null,null,null,null,null,753,55294.185922975,55294.185922975
+2022,Information,09999,"Connecticut (unspecified county), Connecticut",Connecticut,155247.682342882,null,null,null,null,null,null,2339,155247.682342882,155247.682342882
+2022,Other Services (except Public Administration),09999,"Connecticut (unspecified county), Connecticut",Connecticut,89433.481666667,null,null,null,null,null,null,600,89433.481666667,89433.481666667
+2022,Educational Services,09999,"Connecticut (unspecified county), Connecticut",Connecticut,63347.384726225,null,null,null,null,null,null,694,63347.384726225,63347.384726225
+2022,Construction,09999,"Connecticut (unspecified county), Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Utilities,09999,"Connecticut (unspecified county), Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,"Arts, Entertainment, and Recreation",09999,"Connecticut (unspecified county), Connecticut",Connecticut,101297.775641026,null,null,null,null,null,null,156,101297.775641026,101297.775641026
+2022,Health Care and Social Assistance,09999,"Connecticut (unspecified county), Connecticut",Connecticut,75172.1663563,null,null,null,null,null,null,1611,75172.1663563,75172.1663563
+2022,Management of Companies and Enterprises,09999,"Connecticut (unspecified county), Connecticut",Connecticut,292213.895622896,null,null,null,null,null,null,1188,292213.895622896,292213.895622896
+2022,Manufacturing,09999,"Connecticut (unspecified county), Connecticut",Connecticut,133848.574257426,null,null,null,null,null,null,202,133848.574257426,133848.574257426
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09999,"Connecticut (unspecified county), Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Finance and Insurance,09999,"Connecticut (unspecified county), Connecticut",Connecticut,156210.974165018,null,null,null,null,null,null,8593,156210.974165018,156210.974165018
+2022,Wholesale Trad,09999,"Connecticut (unspecified county), Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,"Professional, Scientific, and Technical Services",09999,"Connecticut (unspecified county), Connecticut",Connecticut,144907.195664105,null,null,null,null,null,null,7288,144907.195664105,144907.195664105
+2022,"Agriculture, Forestry, Fishing and Hunting",09999,"Connecticut (unspecified county), Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09999,"Connecticut (unspecified county), Connecticut",Connecticut,87398.901215611,null,null,null,null,null,null,7815,87398.901215611,87398.901215611
+2022,Real Estate and Rental and Leasing,09999,"Connecticut (unspecified county), Connecticut",Connecticut,105069.296296296,null,null,null,null,null,null,486,105069.296296296,105069.296296296
+2022,Tranportation and Warehousing,09999,"Connecticut (unspecified county), Connecticut",Connecticut,91805.177464789,null,null,null,null,null,null,710,91805.177464789,91805.177464789
+2022,Tranportation and Warehousing,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,4779,268,285456000,59731.324544884,4806923697000,1005843000,null,null,null
+2022,Finance and Insurance,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,42472,1120,9553654000,224940.054624223,2616465262200000,61604475000,null,null,null
+2022,Educational Services,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,6298,355,400955000,63663.861543347,4647735060000,737970000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,37627,2380,4180612000,111106.705291413,617717492236000,16416868000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,9672,473,372526000,38515.922249793,11226067944000,1160677000,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,77,20,6782000,88077.922077922,4033183000,52379000,null,null,null
+2022,Manufacturing,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,16571,527,1350579000,81502.564721501,103767784281000,6262011000,null,null,null
+2022,Retail Trade,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,36264,1776,1614702000,44526.307081403,577371727608000,15921347000,null,null,null
+2022,Utilities,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,849,20,114646000,135036.513545347,775234635000,913115000,null,null,null
+2022,Other Services (except Public Administration),09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,6496,1089,230221000,35440.424876847,4569598208000,703448000,null,null,null
+2022,Health Care and Social Assistance,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,51726,1619,3569715000,69012.0055678,523453257432000,10119732000,null,null,null
+2022,Information,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,15649,369,1713117000,109471.340021727,246889734790000,15776710000,null,null,null
+2022,Construction,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,8381,1666,674597000,80491.230163465,32482199795000,3875695000,null,null,null
+2022,Accommodation and Food Services,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,21844,1510,575073000,26326.359641091,44542821252000,2039133000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Management of Companies and Enterprises,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,18223,145,2254799000,123733.688196236,11942807510000,655370000,null,null,null
+2022,Real Estate and Rental and Leasing,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,7459,761,484774000,64991.821960048,31818527610000,4265790000,null,null,null
+2022,Wholesale Trad,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,15215,788,1925314000,126540.51922445,1642786783305000,107971527000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09190,"Western Connecticut Planning Region, Connecticut",Connecticut,null,27865,1392,1877770000,67388.121299121,129894870970000,4661578000,null,null,null
+2022,Information,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,1209,61,58924000,48737.799834574,453150126000,374814000,null,null,null
+2022,Retail Trade,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,13991,707,479193000,34250.089343149,73328719785000,5241135000,null,null,null
+2022,Real Estate and Rental and Leasing,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Construction,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,3431,487,241180000,70294.374817837,3614616827000,1053517000,null,null,null
+2022,Manufacturing,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,16719,173,1641160000,98161.373287876,138725317335000,8297465000,null,null,null
+2022,Wholesale Trad,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,1881,108,132872000,70639.021796917,3182683977000,1692017000,null,null,null
+2022,Finance and Insurance,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,1994,184,157355000,78914.242728185,1132017728000,567712000,null,null,null
+2022,Utilities,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,1214,7,171062000,140907.742998353,1266533422000,1043273000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,1439,82,53359000,37080.611535789,263449242000,183078000,null,null,null
+2022,Health Care and Social Assistance,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,18948,485,970516000,51219.97044543,49350179688000,2604506000,null,null,null
+2022,Management of Companies and Enterprises,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Tranportation and Warehousing,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,3155,111,172392000,54640.88748019,1411351390000,447338000,null,null,null
+2022,Accommodation and Food Services,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,10510,563,245832000,23390.294957184,9467176780000,900778000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,1770,270,86651000,48955.367231638,498327570000,281541000,null,null,null
+2022,Educational Services,09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,2261,75,109960000,48633.348076073,739134466000,326906000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,82,7,4774000,58219.512195122,1534958000,18719000,null,null,null
+2022,Other Services (except Public Administration),09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,2223,455,61772000,27787.67431399,465640695000,209465000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09180,"Southeastern Connecticut Planning Region, Connecticut",Connecticut,null,7237,277,977812000,135112.892082355,4503686418000,622314000,null,null,null
+2022,Finance and Insurance,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,9773,414,915004000,93625.70346874,75027340546000,7677002000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,3418,243,87226000,25519.602106495,1036084668000,303126000,null,null,null
+2022,Health Care and Social Assistance,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,53993,1348,3010333000,55754.134795251,414746581584000,7681488000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Retail Trade,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,34410,1377,1270684000,36927.753560012,430459602840000,12509724000,null,null,null
+2022,Educational Services,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,35469,239,2519683000,71039.019989286,51806766249000,1460621000,null,null,null
+2022,Other Services (except Public Administration),09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,5939,939,212179000,35726.384913285,3909928772000,658348000,null,null,null
+2022,Information,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,3750,140,371598000,99092.8,7978695000000,2127652000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,13327,1224,1497613000,112374.352817588,73846359643000,5541109000,null,null,null
+2022,Tranportation and Warehousing,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,10000,272,441144000,44114.4,15844680000000,1584468000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,12840,586,495755000,38610.202492212,14595484800000,1136720000,null,null,null
+2022,Construction,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,9062,1086,753662000,83167.291988524,30224751398000,3335329000,null,null,null
+2022,Utilities,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,1985,12,187986000,94703.274559194,6502832210000,3275986000,null,null,null
+2022,Wholesale Trad,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,13300,624,1155583000,86885.939849624,151566534000000,11395980000,null,null,null
+2022,Real Estate and Rental and Leasing,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,5080,430,269596000,53070.078740157,4672848160000,919852000,null,null,null
+2022,Accommodation and Food Services,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,22241,1356,544442000,24479.205071714,41172072139000,1851179000,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,14,4,677000,48357.142857143,86338000,6167000,null,null,null
+2022,Manufacturing,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,16876,575,1221844000,72401.279924153,121859807144000,7220894000,null,null,null
+2022,Management of Companies and Enterprises,09170,"South Central Connecticut Planning Region, Connecticut",Connecticut,null,4844,55,530777000,109574.112303881,578165308000,119357000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Finance and Insurance,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,376,94,24021000,63885.638297872,28168416000,74916000,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,"Arts, Entertainment, and Recreation",09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,1151,81,34749000,30190.269331017,136705421000,118771000,null,null,null
+2022,Manufacturing,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,3503,114,218186000,62285.469597488,4098559042000,1170014000,null,null,null
+2022,Educational Services,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,2374,55,125658000,52930.918281382,922384464000,388536000,null,null,null
+2022,Health Care and Social Assistance,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,7944,263,436410000,54935.80060423,9780597192000,1231193000,null,null,null
+2022,Other Services (except Public Administration),09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Construction,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,2124,363,172601000,81262.241054614,2000432052000,941823000,null,null,null
+2022,Accommodation and Food Services,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,3196,280,78562000,24581.351689612,808680684000,253029000,null,null,null
+2022,Wholesale Trad,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,173,38,12602000,72843.930635838,53299397000,308089000,null,null,null
+2022,Real Estate and Rental and Leasing,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,72,9,4460000,61944.444444444,1950264000,27087000,null,null,null
+2022,Tranportation and Warehousing,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Retail Trade,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,4671,345,172129000,36850.567330336,9652878405000,2066555000,null,null,null
+2022,Information,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,507,55,22570000,44516.765285996,65032383000,128269000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,1038,242,42436000,40882.46628131,124161408000,119616000,null,null,null
+2022,Utilities,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,176,6,19592000,111318.181818182,52961392000,300917000,null,null,null
+2022,Management of Companies and Enterprises,09160,"Northwest Hills Planning Region, Connecticut",Connecticut,null,239,11,39013000,163234.309623431,597022000,2498000,null,null,null
+2022,Educational Services,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,757,24,40947000,54091.149273448,88413815000,116795000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Retail Trade,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,3173,172,98633000,31085.092971951,3431850167000,1081579000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Management of Companies and Enterprises,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Tranportation and Warehousing,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Information,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,81,27,3874000,47827.160493827,1239705000,15305000,null,null,null
+2022,Health Care and Social Assistance,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,4102,201,194105000,47319.600195027,1815253958000,442529000,null,null,null
+2022,Accommodation and Food Services,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,3478,213,73343000,21087.694077056,898572602000,258359000,null,null,null
+2022,Real Estate and Rental and Leasing,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,432,90,15010000,34745.37037037,19930752000,46136000,null,null,null
+2022,Finance and Insurance,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,455,67,25238000,55468.131868132,37334570000,82054000,null,null,null
+2022,Construction,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Utilities,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,112,6,14907000,133098.214285714,36265488000,323799000,null,null,null
+2022,Other Services (except Public Administration),09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Manufacturing,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,6794,181,367155000,54041.065646158,15485720462000,2279323000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Wholesale Trad,09150,"Northeastern Connecticut Planning Region, Connecticut",Connecticut,null,884,30,41123000,46519.230769231,1103977212000,1248843000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,"Professional, Scientific, and Technical Services",09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,6107,597,463688000,75927.296544948,7690490137000,1259291000,null,null,null
+2022,Tranportation and Warehousing,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,5549,180,375486000,67667.327446387,8527836376000,1536824000,null,null,null
+2022,Real Estate and Rental and Leasing,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,1512,250,90402000,59789.682539683,728017416000,481493000,null,null,null
+2022,Manufacturing,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,17556,518,1232575000,70208.190931875,105626622024000,6016554000,null,null,null
+2022,Wholesale Trad,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,6291,301,590085000,93798.283261803,86379984684000,13730724000,null,null,null
+2022,Accommodation and Food Services,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,11066,683,226326000,20452.376649196,7897328362000,713657000,null,null,null
+2022,Retail Trade,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,18114,850,651763000,35981.174781937,138561503310000,7649415000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,10623,564,500423000,47107.502588723,12960198099000,1220013000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,1794,127,55399000,30880.156075808,293349498000,163517000,null,null,null
+2022,Management of Companies and Enterprises,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,7364,69,620995000,84328.489951114,16082976000,2184000,null,null,null
+2022,Finance and Insurance,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,5210,208,560714000,107622.648752399,22182340870000,4257647000,null,null,null
+2022,Construction,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,6879,1006,487737000,70902.311382468,17733793719000,2577961000,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Utilities,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,560,6,77797000,138923.214285714,401563120000,717077000,null,null,null
+2022,Health Care and Social Assistance,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,28546,791,1567893000,54925.138373152,105270482954000,3687749000,null,null,null
+2022,Educational Services,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,4500,117,182817000,40626,2315335500000,514519000,null,null,null
+2022,Information,09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,7905,99,1047241000,132478.304870335,81696119700000,10334740000,null,null,null
+2022,Other Services (except Public Administration),09140,"Naugatuck Valley Planning Region, Connecticut",Connecticut,null,3883,599,149439000,38485.449394798,1783232803000,459241000,null,null,null
+2022,Retail Trade,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,9703,578,362281000,37337.009172421,34429339257000,3548319000,null,null,null
+2022,Accommodation and Food Services,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,5308,420,135326000,25494.724943482,2555499444000,481443000,null,null,null
+2022,Finance and Insurance,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,1721,161,191785000,111438.11737362,1160926365000,674565000,null,null,null
+2022,Manufacturing,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,10155,292,819289000,80678.385032004,40605376800000,3998560000,null,null,null
+2022,Information,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,733,60,54453000,74287.858117326,217866658000,297226000,null,null,null
+2022,Educational Services,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,3189,68,123152000,38617.748510505,189299040000,59360000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,1564,122,45744000,29248.081841432,214712176000,137284000,null,null,null
+2022,Health Care and Social Assistance,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,12592,359,654505000,51977.843074968,18306174048000,1453794000,null,null,null
+2022,Tranportation and Warehousing,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,2581,60,74257000,28770.631538164,432748527000,167667000,null,null,null
+2022,Utilities,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,349,3,41750000,119627.507163324,114962345000,329405000,null,null,null
+2022,Real Estate and Rental and Leasing,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,746,65,40335000,54068.36461126,108337850000,145225000,null,null,null
+2022,Management of Companies and Enterprises,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,141,14,10162000,72070.921985816,39621000,281000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Wholesale Trad,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,2791,197,258467000,92607.309208169,9160729049000,3282239000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,5075,610,386807000,76218.128078818,5726366100000,1128348000,null,null,null
+2022,Other Services (except Public Administration),09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,1539,325,62852000,40839.50617284,318098988000,206692000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,2873,309,100124000,34849.982596589,887452462000,308894000,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Construction,09130,"Lower Connecticut River Valley Planning Region, Connecticut",Connecticut,null,4036,549,261749000,64853.567888999,4509120100000,1117225000,null,null,null
+2022,Educational Services,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,11164,151,382776000,34286.635614475,15305096012000,1370933000,null,null,null
+2022,Management of Companies and Enterprises,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,2233,31,223618000,100142.409314823,53810834000,24098000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,10894,755,1229456000,112856.251147421,54147330614000,4970381000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,2109,133,62735000,29746.325272641,475364382000,225398000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Manufacturing,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,11006,176,1073121000,97503.270943122,54364918426000,4939571000,null,null,null
+2022,Other Services (except Public Administration),09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,3501,397,105396000,30104.541559554,1064580579000,304079000,null,null,null
+2022,Finance and Insurance,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,5990,311,787999000,131552.420701169,18477922050000,3084795000,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,Accommodation and Food Services,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,11306,782,282832000,25016.097647267,11233245890000,993565000,null,null,null
+2022,Information,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,1234,71,142005000,115076.98541329,2355670214000,1908971000,null,null,null
+2022,Tranportation and Warehousing,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,4290,148,204649000,47703.72960373,2971743060000,692714000,null,null,null
+2022,Wholesale Trad,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,5201,287,435749000,83781.772736012,35893531275000,6901275000,null,null,null
+2022,Utilities,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,514,7,53799000,104667.315175097,216331292000,420878000,null,null,null
+2022,Construction,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,4235,635,341626000,80667.296340024,6413043560000,1514296000,null,null,null
+2022,Retail Trade,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,13776,778,471253000,34208.260743322,62160976416000,4512266000,null,null,null
+2022,Health Care and Social Assistance,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,23509,672,1211387000,51528.648602663,71619533757000,3046473000,null,null,null
+2022,Real Estate and Rental and Leasing,09120,"Greater Bridgeport Planning Region, Connecticut",Connecticut,null,2658,231,85557000,32188.48758465,1002233454000,377063000,null,null,null
+2022,Wholesale Trad,09110,"Capitol Planning Region, Connecticut",Connecticut,null,19693,888,1575868000,80021.733610928,521069867757000,26459649000,null,null,null
+2022,Administrative and Support and Waste Management and Remediation Services,09110,"Capitol Planning Region, Connecticut",Connecticut,null,35517,1129,1309279000,36863.445673903,126047275776000,3548928000,null,null,null
+2022,Retail Trade,09110,"Capitol Planning Region, Connecticut",Connecticut,null,56295,2194,1915046000,34018.047783995,1069619186340000,19000252000,null,null,null
+2022,Construction,09110,"Capitol Planning Region, Connecticut",Connecticut,null,19435,1892,1676243000,86248.675070749,145513265560000,7487176000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09110,"Capitol Planning Region, Connecticut",Connecticut,null,33414,2045,2794099000,83620.608128329,230842055802000,6908543000,null,null,null
+2022,Health Care and Social Assistance,09110,"Capitol Planning Region, Connecticut",Connecticut,null,84266,2024,5036603000,59770.286948473,1054525621968000,12514248000,null,null,null
+2022,Finance and Insurance,09110,"Capitol Planning Region, Connecticut",Connecticut,null,53573,897,6879733000,128417.915741138,3429780050359000,64020683000,null,null,null
+2022,Accommodation and Food Services,09110,"Capitol Planning Region, Connecticut",Connecticut,null,33051,1744,825024000,24962.149405464,92104477638000,2786738000,null,null,null
+2022,Management of Companies and Enterprises,09110,"Capitol Planning Region, Connecticut",Connecticut,null,7500,144,830528000,110737.066666667,601380000000,80184000,null,null,null
+2022,"Arts, Entertainment, and Recreation",09110,"Capitol Planning Region, Connecticut",Connecticut,null,5751,342,148031000,25740.045209529,2552552595000,443845000,null,null,null
+2022,Information,09110,"Capitol Planning Region, Connecticut",Connecticut,null,7300,252,631870000,86557.534246575,24427303800000,3346206000,null,null,null
+2022,Manufacturing,09110,"Capitol Planning Region, Connecticut",Connecticut,null,54622,1129,4767763000,87286.496283549,1344059957296000,24606568000,null,null,null
+2022,Tranportation and Warehousing,09110,"Capitol Planning Region, Connecticut",Connecticut,null,20673,457,995751000,48166.739225076,55896753069000,2703853000,null,null,null
+2022,Real Estate and Rental and Leasing,09110,"Capitol Planning Region, Connecticut",Connecticut,null,9430,670,480577000,50962.566277837,23381364380000,2479466000,null,null,null
+2022,Utilities,09110,"Capitol Planning Region, Connecticut",Connecticut,null,2525,15,342310000,135568.316831683,9166121175000,3630147000,null,null,null
+2022,Educational Services,09110,"Capitol Planning Region, Connecticut",Connecticut,null,11810,346,532995000,45130.821337849,15412109050000,1305005000,null,null,null
+2022,Other Services (except Public Administration),09110,"Capitol Planning Region, Connecticut",Connecticut,null,9954,1403,389738000,39153.907976693,12233247012000,1228978000,null,null,null
+2022,"Agriculture, Forestry, Fishing and Hunting",09110,"Capitol Planning Region, Connecticut",Connecticut,null,0,0,0,null,0,0,null,null,null
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09110,"Capitol Planning Region, Connecticut",Connecticut,null,96,8,6387000,66531.25,3592416000,37421000,null,null,null
+2022,"Professional, Scientific, and Technical Services",09015,"Windham County, Connecticut",Connecticut,80868.789044289,null,null,null,null,null,null,858,80868.789044289,80868.789044289
+2022,"Arts, Entertainment, and Recreation",09015,"Windham County, Connecticut",Connecticut,19410.818532819,null,null,null,null,null,null,259,19410.818532819,19410.818532819
+2022,Construction,09015,"Windham County, Connecticut",Connecticut,65528.729827743,null,null,null,null,null,null,1103,65528.729827743,65528.729827743
+2022,Real Estate and Rental and Leasing,09015,"Windham County, Connecticut",Connecticut,46447.576923077,null,null,null,null,null,null,182,46447.576923077,46447.576923077
+2022,Finance and Insurance,09015,"Windham County, Connecticut",Connecticut,76362.070052539,null,null,null,null,null,null,571,76362.070052539,76362.070052539
+2022,Wholesale Trad,09015,"Windham County, Connecticut",Connecticut,71852.478861789,null,null,null,null,null,null,1230,71852.478861789,71852.478861789
+2022,Other Services (except Public Administration),09015,"Windham County, Connecticut",Connecticut,35261.20326087,null,null,null,null,null,null,920,35261.20326087,35261.20326087
+2022,Utilities,09015,"Windham County, Connecticut",Connecticut,132991.460526316,null,null,null,null,null,null,152,132991.460526316,132991.460526316
+2022,Management of Companies and Enterprises,09015,"Windham County, Connecticut",Connecticut,66834.125461255,null,null,null,null,null,null,271,66834.125461255,66834.125461255
+2022,Tranportation and Warehousing,09015,"Windham County, Connecticut",Connecticut,55258.719012605,null,null,null,null,null,null,1904,55258.719012605,55258.719012605
+2022,Accommodation and Food Services,09015,"Windham County, Connecticut",Connecticut,24990.480164561,null,null,null,null,null,null,3403,24990.480164561,24990.480164561
+2022,Health Care and Social Assistance,09015,"Windham County, Connecticut",Connecticut,52362.247168459,null,null,null,null,null,null,6975,52362.247168459,52362.247168459
+2022,Manufacturing,09015,"Windham County, Connecticut",Connecticut,68339.580698835,null,null,null,null,null,null,6010,68339.580698835,68339.580698835
+2022,Retail Trade,09015,"Windham County, Connecticut",Connecticut,35747.034535687,null,null,null,null,null,null,5212,35747.034535687,35747.034535687
+2022,Information,09015,"Windham County, Connecticut",Connecticut,100029.91588785,null,null,null,null,null,null,214,100029.91588785,100029.91588785
+2022,Administrative and Support and Waste Management and Remediation Services,09015,"Windham County, Connecticut",Connecticut,50308.96151053,null,null,null,null,null,null,1377,50308.96151053,50308.96151053
+2022,Educational Services,09015,"Windham County, Connecticut",Connecticut,54520.041622199,null,null,null,null,null,null,937,54520.041622199,54520.041622199
+2022,"Agriculture, Forestry, Fishing and Hunting",09015,"Windham County, Connecticut",Connecticut,30458.794223827,null,null,null,null,null,null,277,30458.794223827,30458.794223827
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09015,"Windham County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Information,09013,"Tolland County, Connecticut",Connecticut,110116.482200647,null,null,null,null,null,null,309,110116.482200647,110116.482200647
+2022,Tranportation and Warehousing,09013,"Tolland County, Connecticut",Connecticut,35245.346320346,null,null,null,null,null,null,1617,35245.346320346,35245.346320346
+2022,Wholesale Trad,09013,"Tolland County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Manufacturing,09013,"Tolland County, Connecticut",Connecticut,63906.655943109,null,null,null,null,null,null,2953,63906.655943109,63906.655943109
+2022,Educational Services,09013,"Tolland County, Connecticut",Connecticut,49372.347727273,null,null,null,null,null,null,440,49372.347727273,49372.347727273
+2022,"Agriculture, Forestry, Fishing and Hunting",09013,"Tolland County, Connecticut",Connecticut,45675.627314815,null,null,null,null,null,null,432,45675.627314815,45675.627314815
+2022,Construction,09013,"Tolland County, Connecticut",Connecticut,74235.959848074,null,null,null,null,null,null,1843,74235.959848074,74235.959848074
+2022,Accommodation and Food Services,09013,"Tolland County, Connecticut",Connecticut,25340.095304639,null,null,null,null,null,null,3578,25340.095304639,25340.095304639
+2022,Administrative and Support and Waste Management and Remediation Services,09013,"Tolland County, Connecticut",Connecticut,54396.293501048,null,null,null,null,null,null,954,54396.293501048,54396.293501048
+2022,Retail Trade,09013,"Tolland County, Connecticut",Connecticut,42549.790804044,null,null,null,null,null,null,4154,42549.790804044,42549.790804044
+2022,Real Estate and Rental and Leasing,09013,"Tolland County, Connecticut",Connecticut,55922.946731235,null,null,null,null,null,null,413,55922.946731235,55922.946731235
+2022,Other Services (except Public Administration),09013,"Tolland County, Connecticut",Connecticut,47542.648711944,null,null,null,null,null,null,1281,47542.648711944,47542.648711944
+2022,Health Care and Social Assistance,09013,"Tolland County, Connecticut",Connecticut,50359.182987141,null,null,null,null,null,null,5055,50359.182987141,50359.182987141
+2022,Utilities,09013,"Tolland County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,"Arts, Entertainment, and Recreation",09013,"Tolland County, Connecticut",Connecticut,25064.115789474,null,null,null,null,null,null,570,25064.115789474,25064.115789474
+2022,Finance and Insurance,09013,"Tolland County, Connecticut",Connecticut,86381.664761905,null,null,null,null,null,null,525,86381.664761905,86381.664761905
+2022,Management of Companies and Enterprises,09013,"Tolland County, Connecticut",Connecticut,124272.141176471,null,null,null,null,null,null,85,124272.141176471,124272.141176471
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09013,"Tolland County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,"Professional, Scientific, and Technical Services",09013,"Tolland County, Connecticut",Connecticut,78646.384984026,null,null,null,null,null,null,1252,78646.384984026,78646.384984026
+2022,Wholesale Trad,09011,"New London County, Connecticut",Connecticut,99795.010764662,null,null,null,null,null,null,2694,99795.010764662,99795.010764662
+2022,Educational Services,09011,"New London County, Connecticut",Connecticut,52608.654860291,null,null,null,null,null,null,2541,52608.654860291,52608.654860291
+2022,Tranportation and Warehousing,09011,"New London County, Connecticut",Connecticut,57809.884164223,null,null,null,null,null,null,2728,57809.884164223,57809.884164223
+2022,Administrative and Support and Waste Management and Remediation Services,09011,"New London County, Connecticut",Connecticut,49842.210051546,null,null,null,null,null,null,3104,49842.210051546,49842.210051546
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09011,"New London County, Connecticut",Connecticut,66056.696969697,null,null,null,null,null,null,66,66056.696969697,66056.696969697
+2022,"Arts, Entertainment, and Recreation",09011,"New London County, Connecticut",Connecticut,38397.811808118,null,null,null,null,null,null,1897,38397.811808118,38397.811808118
+2022,Management of Companies and Enterprises,09011,"New London County, Connecticut",Connecticut,127153.227912932,null,null,null,null,null,null,781,127153.227912932,127153.227912932
+2022,Construction,09011,"New London County, Connecticut",Connecticut,76640.67538708,null,null,null,null,null,null,3746,76640.67538708,76640.67538708
+2022,"Professional, Scientific, and Technical Services",09011,"New London County, Connecticut",Connecticut,120550.342987502,null,null,null,null,null,null,5041,120550.342987502,120550.342987502
+2022,Accommodation and Food Services,09011,"New London County, Connecticut",Connecticut,28763.173809117,null,null,null,null,null,null,11714,28763.173809117,28763.173809117
+2022,"Agriculture, Forestry, Fishing and Hunting",09011,"New London County, Connecticut",Connecticut,55067.172925764,null,null,null,null,null,null,1145,55067.172925764,55067.172925764
+2022,Retail Trade,09011,"New London County, Connecticut",Connecticut,37855.476821192,null,null,null,null,null,null,12986,37855.476821192,37855.476821192
+2022,Other Services (except Public Administration),09011,"New London County, Connecticut",Connecticut,39418.061946903,null,null,null,null,null,null,2599,39418.061946903,39418.061946903
+2022,Utilities,09011,"New London County, Connecticut",Connecticut,153591.221198157,null,null,null,null,null,null,1085,153591.221198157,153591.221198157
+2022,Finance and Insurance,09011,"New London County, Connecticut",Connecticut,103456.282308657,null,null,null,null,null,null,1594,103456.282308657,103456.282308657
+2022,Manufacturing,09011,"New London County, Connecticut",Connecticut,108191.890484343,null,null,null,null,null,null,18107,108191.890484343,108191.890484343
+2022,Real Estate and Rental and Leasing,09011,"New London County, Connecticut",Connecticut,60871.164677804,null,null,null,null,null,null,838,60871.164677804,60871.164677804
+2022,Information,09011,"New London County, Connecticut",Connecticut,83431.239008793,null,null,null,null,null,null,1251,83431.239008793,83431.239008793
+2022,Health Care and Social Assistance,09011,"New London County, Connecticut",Connecticut,61212.390280351,null,null,null,null,null,null,16729,61212.390280351,61212.390280351
+2022,Administrative and Support and Waste Management and Remediation Services,09009,"New Haven County, Connecticut",Connecticut,57761.768645649,null,null,null,null,null,null,20903,57761.768645649,57761.768645649
+2022,Educational Services,09009,"New Haven County, Connecticut",Connecticut,98984.654244664,null,null,null,null,null,null,28954,98984.654244664,98984.654244664
+2022,Wholesale Trad,09009,"New Haven County, Connecticut",Connecticut,92672.041817675,null,null,null,null,null,null,14348,92672.041817675,92672.041817675
+2022,"Arts, Entertainment, and Recreation",09009,"New Haven County, Connecticut",Connecticut,33078.139549307,null,null,null,null,null,null,4837,33078.139549307,33078.139549307
+2022,Other Services (except Public Administration),09009,"New Haven County, Connecticut",Connecticut,42227.304391892,null,null,null,null,null,null,11840,42227.304391892,42227.304391892
+2022,Management of Companies and Enterprises,09009,"New Haven County, Connecticut",Connecticut,142001.580195977,null,null,null,null,null,null,3878,142001.580195977,142001.580195977
+2022,Information,09009,"New Haven County, Connecticut",Connecticut,109186.489229403,null,null,null,null,null,null,4503,109186.489229403,109186.489229403
+2022,Construction,09009,"New Haven County, Connecticut",Connecticut,76904.534781413,null,null,null,null,null,null,14548,76904.534781413,76904.534781413
+2022,Tranportation and Warehousing,09009,"New Haven County, Connecticut",Connecticut,49195.126313599,null,null,null,null,null,null,19222,49195.126313599,49195.126313599
+2022,Retail Trade,09009,"New Haven County, Connecticut",Connecticut,40162.890411305,null,null,null,null,null,null,39557,40162.890411305,40162.890411305
+2022,"Agriculture, Forestry, Fishing and Hunting",09009,"New Haven County, Connecticut",Connecticut,37138.505300353,null,null,null,null,null,null,849,37138.505300353,37138.505300353
+2022,Utilities,09009,"New Haven County, Connecticut",Connecticut,131552.601631117,null,null,null,null,null,null,1594,131552.601631117,131552.601631117
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09009,"New Haven County, Connecticut",Connecticut,84538.410958904,null,null,null,null,null,null,73,84538.410958904,84538.410958904
+2022,Manufacturing,09009,"New Haven County, Connecticut",Connecticut,75468.759590355,null,null,null,null,null,null,29196,75468.759590355,75468.759590355
+2022,Real Estate and Rental and Leasing,09009,"New Haven County, Connecticut",Connecticut,74224.982523526,null,null,null,null,null,null,5207,74224.982523526,74224.982523526
+2022,Health Care and Social Assistance,09009,"New Haven County, Connecticut",Connecticut,62084.268608639,null,null,null,null,null,null,72023,62084.268608639,62084.268608639
+2022,Finance and Insurance,09009,"New Haven County, Connecticut",Connecticut,112938.328387632,null,null,null,null,null,null,9638,112938.328387632,112938.328387632
+2022,Accommodation and Food Services,09009,"New Haven County, Connecticut",Connecticut,26014.226032296,null,null,null,null,null,null,26567,26014.226032296,26014.226032296
+2022,"Professional, Scientific, and Technical Services",09009,"New Haven County, Connecticut",Connecticut,124028.551989961,null,null,null,null,null,null,16734,124028.551989961,124028.551989961
+2022,Finance and Insurance,09007,"Middlesex County, Connecticut",Connecticut,126050.817345598,null,null,null,null,null,null,1522,126050.817345598,126050.817345598
+2022,Real Estate and Rental and Leasing,09007,"Middlesex County, Connecticut",Connecticut,66385.929384966,null,null,null,null,null,null,439,66385.929384966,66385.929384966
+2022,Construction,09007,"Middlesex County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Management of Companies and Enterprises,09007,"Middlesex County, Connecticut",Connecticut,159355.638930163,null,null,null,null,null,null,673,159355.638930163,159355.638930163
+2022,Manufacturing,09007,"Middlesex County, Connecticut",Connecticut,89761.405046205,null,null,null,null,null,null,9631,89761.405046205,89761.405046205
+2022,Administrative and Support and Waste Management and Remediation Services,09007,"Middlesex County, Connecticut",Connecticut,45504.24336145,null,null,null,null,null,null,3201,45504.24336145,45504.24336145
+2022,"Professional, Scientific, and Technical Services",09007,"Middlesex County, Connecticut",Connecticut,96529.574191599,null,null,null,null,null,null,3309,96529.574191599,96529.574191599
+2022,Health Care and Social Assistance,09007,"Middlesex County, Connecticut",Connecticut,59958.206551256,null,null,null,null,null,null,11784,59958.206551256,59958.206551256
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09007,"Middlesex County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Educational Services,09007,"Middlesex County, Connecticut",Connecticut,72738.493896236,null,null,null,null,null,null,1966,72738.493896236,72738.493896236
+2022,"Arts, Entertainment, and Recreation",09007,"Middlesex County, Connecticut",Connecticut,37012.239940387,null,null,null,null,null,null,1342,37012.239940387,37012.239940387
+2022,Utilities,09007,"Middlesex County, Connecticut",Connecticut,153635.655052265,null,null,null,null,null,null,287,153635.655052265,153635.655052265
+2022,Tranportation and Warehousing,09007,"Middlesex County, Connecticut",Connecticut,36097.22895358,null,null,null,null,null,null,2542,36097.22895358,36097.22895358
+2022,Wholesale Trad,09007,"Middlesex County, Connecticut",Connecticut,100188.876283619,null,null,null,null,null,null,2045,100188.876283619,100188.876283619
+2022,"Agriculture, Forestry, Fishing and Hunting",09007,"Middlesex County, Connecticut",Connecticut,null,null,null,null,null,null,null,0,null,null
+2022,Other Services (except Public Administration),09007,"Middlesex County, Connecticut",Connecticut,43342.693234476,null,null,null,null,null,null,2158,43342.693234476,43342.693234476
+2022,Information,09007,"Middlesex County, Connecticut",Connecticut,90086.0375,null,null,null,null,null,null,640,90086.0375,90086.0375
+2022,Retail Trade,09007,"Middlesex County, Connecticut",Connecticut,41101.392871774,null,null,null,null,null,null,7323,41101.392871774,41101.392871774
+2022,Accommodation and Food Services,09007,"Middlesex County, Connecticut",Connecticut,28124.230392157,null,null,null,null,null,null,5916,28124.230392157,28124.230392157
+2022,Finance and Insurance,09005,"Litchfield County, Connecticut",Connecticut,83606.797824116,null,null,null,null,null,null,1103,83606.797824116,83606.797824116
+2022,Educational Services,09005,"Litchfield County, Connecticut",Connecticut,56925.442013889,null,null,null,null,null,null,2880,56925.442013889,56925.442013889
+2022,"Arts, Entertainment, and Recreation",09005,"Litchfield County, Connecticut",Connecticut,31907.452889945,null,null,null,null,null,null,1263,31907.452889945,31907.452889945
+2022,Retail Trade,09005,"Litchfield County, Connecticut",Connecticut,40441.289363277,null,null,null,null,null,null,8104,40441.289363277,40441.289363277
+2022,Tranportation and Warehousing,09005,"Litchfield County, Connecticut",Connecticut,51485.260514752,null,null,null,null,null,null,1593,51485.260514752,51485.260514752
+2022,Administrative and Support and Waste Management and Remediation Services,09005,"Litchfield County, Connecticut",Connecticut,47744.82488143,null,null,null,null,null,null,2741,47744.82488143,47744.82488143
+2022,Health Care and Social Assistance,09005,"Litchfield County, Connecticut",Connecticut,55338.186396729,null,null,null,null,null,null,10027,55338.186396729,55338.186396729
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09005,"Litchfield County, Connecticut",Connecticut,65124.853932584,null,null,null,null,null,null,89,65124.853932584,65124.853932584
+2022,Management of Companies and Enterprises,09005,"Litchfield County, Connecticut",Connecticut,102469.100443131,null,null,null,null,null,null,677,102469.100443131,102469.100443131
+2022,Information,09005,"Litchfield County, Connecticut",Connecticut,90395.903954802,null,null,null,null,null,null,531,90395.903954802,90395.903954802
+2022,Construction,09005,"Litchfield County, Connecticut",Connecticut,77414.596392334,null,null,null,null,null,null,3548,77414.596392334,77414.596392334
+2022,Other Services (except Public Administration),09005,"Litchfield County, Connecticut",Connecticut,44338.20130719,null,null,null,null,null,null,2295,44338.20130719,44338.20130719
+2022,"Professional, Scientific, and Technical Services",09005,"Litchfield County, Connecticut",Connecticut,90878.586624539,null,null,null,null,null,null,1899,90878.586624539,90878.586624539
+2022,Real Estate and Rental and Leasing,09005,"Litchfield County, Connecticut",Connecticut,60553.585513078,null,null,null,null,null,null,497,60553.585513078,60553.585513078
+2022,Wholesale Trad,09005,"Litchfield County, Connecticut",Connecticut,91790.900132275,null,null,null,null,null,null,1512,91790.900132275,91790.900132275
+2022,Utilities,09005,"Litchfield County, Connecticut",Connecticut,138611.666666667,null,null,null,null,null,null,174,138611.666666667,138611.666666667
+2022,Manufacturing,09005,"Litchfield County, Connecticut",Connecticut,70142.738429173,null,null,null,null,null,null,8556,70142.738429173,70142.738429173
+2022,Accommodation and Food Services,09005,"Litchfield County, Connecticut",Connecticut,26846.309781576,null,null,null,null,null,null,5265,26846.309781576,26846.309781576
+2022,"Agriculture, Forestry, Fishing and Hunting",09005,"Litchfield County, Connecticut",Connecticut,38458.81627907,null,null,null,null,null,null,430,38458.81627907,38458.81627907
+2022,Health Care and Social Assistance,09003,"Hartford County, Connecticut",Connecticut,64240.526562442,null,null,null,null,null,null,81299,64240.526562442,64240.526562442
+2022,"Agriculture, Forestry, Fishing and Hunting",09003,"Hartford County, Connecticut",Connecticut,44989.504139834,null,null,null,null,null,null,1087,44989.504139834,44989.504139834
+2022,Manufacturing,09003,"Hartford County, Connecticut",Connecticut,97593.022854679,null,null,null,null,null,null,51018,97593.022854679,97593.022854679
+2022,Tranportation and Warehousing,09003,"Hartford County, Connecticut",Connecticut,51573.622324159,null,null,null,null,null,null,24198,51573.622324159,51573.622324159
+2022,Information,09003,"Hartford County, Connecticut",Connecticut,137621.281824695,null,null,null,null,null,null,8374,137621.281824695,137621.281824695
+2022,Administrative and Support and Waste Management and Remediation Services,09003,"Hartford County, Connecticut",Connecticut,49205.600711528,null,null,null,null,null,null,26422,49205.600711528,49205.600711528
+2022,"Arts, Entertainment, and Recreation",09003,"Hartford County, Connecticut",Connecticut,28458.909134462,null,null,null,null,null,null,6262,28458.909134462,28458.909134462
+2022,Utilities,09003,"Hartford County, Connecticut",Connecticut,144297.602517986,null,null,null,null,null,null,556,144297.602517986,144297.602517986
+2022,Retail Trade,09003,"Hartford County, Connecticut",Connecticut,40350.062260948,null,null,null,null,null,null,44185,40350.062260948,40350.062260948
+2022,Wholesale Trad,09003,"Hartford County, Connecticut",Connecticut,100254.373374422,null,null,null,null,null,null,16225,100254.373374422,100254.373374422
+2022,Finance and Insurance,09003,"Hartford County, Connecticut",Connecticut,153297.46915922,null,null,null,null,null,null,43757,153297.46915922,153297.46915922
+2022,Management of Companies and Enterprises,09003,"Hartford County, Connecticut",Connecticut,139249.600353243,null,null,null,null,null,null,12456,139249.600353243,139249.600353243
+2022,Real Estate and Rental and Leasing,09003,"Hartford County, Connecticut",Connecticut,70360.227647868,null,null,null,null,null,null,5816,70360.227647868,70360.227647868
+2022,Other Services (except Public Administration),09003,"Hartford County, Connecticut",Connecticut,47499.751897409,null,null,null,null,null,null,15284,47499.751897409,47499.751897409
+2022,Construction,09003,"Hartford County, Connecticut",Connecticut,83347.729613227,null,null,null,null,null,null,16935,83347.729613227,83347.729613227
+2022,"Professional, Scientific, and Technical Services",09003,"Hartford County, Connecticut",Connecticut,112769.281830914,null,null,null,null,null,null,31416,112769.281830914,112769.281830914
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09003,"Hartford County, Connecticut",Connecticut,78376.166666667,null,null,null,null,null,null,30,78376.166666667,78376.166666667
+2022,Educational Services,09003,"Hartford County, Connecticut",Connecticut,56447.005754844,null,null,null,null,null,null,10426,56447.005754844,56447.005754844
+2022,Accommodation and Food Services,09003,"Hartford County, Connecticut",Connecticut,26950.415119487,null,null,null,null,null,null,32263,26950.415119487,26950.415119487
+2022,Construction,09001,"Fairfield County, Connecticut",Connecticut,80929.594131339,null,null,null,null,null,null,14177,80929.594131339,80929.594131339
+2022,Health Care and Social Assistance,09001,"Fairfield County, Connecticut",Connecticut,69438.648544217,null,null,null,null,null,null,66253,69438.648544217,69438.648544217
+2022,Other Services (except Public Administration),09001,"Fairfield County, Connecticut",Connecticut,49866.285328256,null,null,null,null,null,null,16283,49866.285328256,49866.285328256
+2022,"Mining, Quarrying, and Oil and Gas Extraction",09001,"Fairfield County, Connecticut",Connecticut,79753.794117647,null,null,null,null,null,null,102,79753.794117647,79753.794117647
+2022,Administrative and Support and Waste Management and Remediation Services,09001,"Fairfield County, Connecticut",Connecticut,72653.714245552,null,null,null,null,null,null,24899,72653.714245552,72653.714245552
+2022,Tranportation and Warehousing,09001,"Fairfield County, Connecticut",Connecticut,65378.462882559,null,null,null,null,null,null,9443,65378.462882559,65378.462882559
+2022,Retail Trade,09001,"Fairfield County, Connecticut",Connecticut,48722.872258846,null,null,null,null,null,null,44598,48722.872258846,48722.872258846
+2022,"Agriculture, Forestry, Fishing and Hunting",09001,"Fairfield County, Connecticut",Connecticut,50546.145877378,null,null,null,null,null,null,473,50546.145877378,50546.145877378
+2022,"Professional, Scientific, and Technical Services",09001,"Fairfield County, Connecticut",Connecticut,155596.555952533,null,null,null,null,null,null,31348,155596.555952533,155596.555952533
+2022,Information,09001,"Fairfield County, Connecticut",Connecticut,173791.503765755,null,null,null,null,null,null,13012,173791.503765755,173791.503765755
+2022,Real Estate and Rental and Leasing,09001,"Fairfield County, Connecticut",Connecticut,112982.046025105,null,null,null,null,null,null,5497,112982.046025105,112982.046025105
+2022,Utilities,09001,"Fairfield County, Connecticut",Connecticut,137675.156716418,null,null,null,null,null,null,938,137675.156716418,137675.156716418
+2022,Educational Services,09001,"Fairfield County, Connecticut",Connecticut,60817.862875964,null,null,null,null,null,null,11537,60817.862875964,60817.862875964
+2022,Finance and Insurance,09001,"Fairfield County, Connecticut",Connecticut,352428.942326425,null,null,null,null,null,null,29771,352428.942326425,352428.942326425
+2022,Wholesale Trad,09001,"Fairfield County, Connecticut",Connecticut,143360.751997172,null,null,null,null,null,null,14145,143360.751997172,143360.751997172
+2022,Accommodation and Food Services,09001,"Fairfield County, Connecticut",Connecticut,32330.622463657,null,null,null,null,null,null,32675,32330.622463657,32330.622463657
+2022,"Arts, Entertainment, and Recreation",09001,"Fairfield County, Connecticut",Connecticut,45204.655982686,null,null,null,null,null,null,9703,45204.655982686,45204.655982686
+2022,Management of Companies and Enterprises,09001,"Fairfield County, Connecticut",Connecticut,223472.993866154,null,null,null,null,null,null,10923,223472.993866154,223472.993866154
+2022,Manufacturing,09001,"Fairfield County, Connecticut",Connecticut,105886.658338741,null,null,null,null,null,null,30820,105886.658338741,105886.658338741
