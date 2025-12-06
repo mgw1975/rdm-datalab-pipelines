@@ -1,0 +1,40 @@
+Total rows: 63936
+
+Missing values per column:
+  year_num: 0
+  state_cnty_fips_cd: 0
+  naics2_sector_cd: 0
+  cnty_nm: 7372
+  geo_id: 7372
+  naics2_sector_desc: 7372
+  ind_level_num: 7372
+  abs_firm_num: 7372
+  abs_emp_num: 7372
+  abs_payroll_usd_amt: 7372
+  abs_rcpt_usd_amt: 7372
+  abs_rcpt_per_emp_usd_amt: 7372
+  own_cd: 4805
+  qcew_ann_avg_emp_lvl_num: 4805
+  qcew_ttl_ann_wage_usd_amt: 4805
+  qcew_avg_wkly_wage_usd_amt: 19932
+
+Column dtypes:
+  year_num: int64
+  state_cnty_fips_cd: object
+  naics2_sector_cd: object
+  cnty_nm: object
+  geo_id: object
+  naics2_sector_desc: object
+  ind_level_num: float64
+  abs_firm_num: float64
+  abs_emp_num: float64
+  abs_payroll_usd_amt: float64
+  abs_rcpt_usd_amt: float64
+  abs_rcpt_per_emp_usd_amt: float64
+  own_cd: float64
+  qcew_ann_avg_emp_lvl_num: float64
+  qcew_ttl_ann_wage_usd_amt: float64
+  qcew_avg_wkly_wage_usd_amt: float64
+
+Numeric summary stats saved to qa_summary_stats.csv
+Missing value details saved to qa_missing_values.csv

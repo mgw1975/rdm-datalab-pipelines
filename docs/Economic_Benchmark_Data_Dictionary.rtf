@@ -1,0 +1,73 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Arial;}}
+\f0\fs24
+\b RDM Datalab Economic Benchmark Dataset (Beta)\b0\par
+\par
+\b 1. Overview\b0\par
+The `econ_benchmrk_abs_qcew` table blends two federal sources:
+\par
+- \b Annual Business Survey (ABS).\b0\tab Conducted by the U.S. Census Bureau. ABS samples employer businesses and reports receipts, payroll, firms, and employment. Monetary fields (PAYANN, RCPPDEMP) are published in thousands of dollars and must be converted to USD. Census suppresses cells that could identify respondents, so ABS columns are null when confidentiality rules trigger.
+\par
+- \b Quarterly Census of Employment and Wages (QCEW).\b0\tab Produced by the Bureau of Labor Statistics. QCEW is based on unemployment insurance payroll reporting, covering most wage-and-salary employment. It provides full counts of establishments, employment, total wages, and average weekly wages. When county identities are withheld, QCEW publishes "unspecified county" rows (`xx999`).
+\par
+Joining logic:
+\par
+- Grain: year × state_cnty_fips_cd × NAICS2 (2-digit sectors) after standardizing FIPS padding.
+- Filters: exclude NAICS `00` and `99`, drop statewide totals (`xx000`), retain `xx999` QCEW rows.
+- Derived metrics: ABS receipts per employee = `abs_rcpt_usd_amt / abs_emp_num`. QCEW wages per employee = `qcew_ttl_ann_wage_usd_amt / qcew_ann_avg_emp_lvl_num`. Weekly wage is provided by QCEW; annual equivalents are derived in SQL for dashboard use.
+\par
+Missing-data rules:
+\par
+- ABS nulls → suppressed cells; QCEW metrics remain.
+- QCEW nulls → BLS suppression or unreported sectors.
+- Derived ratios remain null when denominators are zero or null.
+\par
+\b 2. Column Definitions\b0\par
+\b Key fields\b0\par
+`year_num` – Calendar year (INT).\par
+`state_cnty_fips_cd` – 5-digit FIPS (state + county). `xx999` represents unspecified counties.\par
+`naics2_sector_cd` – 2-digit NAICS 2022 sector code.\par
+\b Geography/Labels\b0\par
+`cnty_nm`, `state_nm`, `cnty_full_nm`, `geo_id`, `ind_level_num` (industry level indicator). For `xx999` or ABS-suppressed rows these may be null; users can join to `ref_state_cnty_uscb` for consistent naming.
+\par
+\b ABS metrics\b0\par
+`abs_firm_num` – Firm count from ABS sample, scaled to population.\par
+`abs_emp_num` – Employment.\par
+`abs_payroll_usd_amt` – Annual payroll (USD). Source PAYANN × 1000.\par
+`abs_rcpt_usd_amt` – Receipts. Source RCPPDEMP × 1000 (ABS publishes totals in $1,000s).\par
+`abs_rcpt_per_emp_usd_amt` – Receipts per employee (`abs_rcpt_usd_amt` ÷ `abs_emp_num`).\par
+`abs_rcpt_per_firm_usd_amt` – Receipts per firm.\par
+`abs_wage_per_emp_usd_amt` – Payroll per employee.
+\par
+\b QCEW metrics\b0\par
+`qcew_ann_avg_emp_lvl_num` – Average annual employment level.\par
+`qcew_ttl_ann_wage_usd_amt` – Total annual wages (sum over quarters).\par
+`qcew_avg_wkly_wage_usd_amt` – Average weekly wage (BLS publishes this).\par
+`qcew_wage_per_emp_usd_amt` – Derived annual wage per employee.
+\par
+\b Derived/Support\b0\par
+`abs_rcpt_per_emp_usd_amt`, `abs_rcpt_per_firm_usd_amt`, `abs_wage_per_emp_usd_amt`, `qcew_wage_per_emp_usd_amt` are computed only when denominators > 0.
+\par
+\b Reference tables\b0\par
+`ref_state_cnty_uscb` – Built from 2022 Gazetteer; includes columns for postal code, ANSI name, land/water area, centroid lat/long. Synthetic FIPS (`xx000`, `xx999`) provide stable join keys for statewide/unspecified rows.
+\par
+`ref_naics2_uscb` – Official NAICS 2022 sector descriptions. Use to join human-readable labels into analyses.
+\par
+\b 3. Data Preparation Notes\b0\par
+1. Pull ABS via https://api.census.gov/data/<year>/abscs with `INDLEVEL=2`. Convert PAYANN and RCPPDEMP from $1,000s to USD (×1000), then derive receipts-per-employee as receipts divided by employment. Build FIPS string using `state` and `county` columns.
+\par
+2. Prepare QCEW via the BLS single-file CSV. Filter for private ownership (own_code=5) and `agg_lvl_cd=74` (county × sector). Derive annual average employment and wages. Keep `xx999` rows.
+\par
+3. Merge in BigQuery with a FULL OUTER JOIN on keys. Drop statewide (`xx000`) rows, keep `xx999`. Coalesce descriptive columns from ABS first, fall back to QCEW reference tables when needed.
+\par
+4. Derived measures for dashboard: `qcew_wage_per_emp_usd_amt` and `abs_wage_per_emp_usd_amt` facilitate weighted averages in Looker. Weighted KPIs should compute `SUM(wages)/SUM(employment)` rather than averaging row-level wages.
+\par
+\b 4. Missing Data Guidance\b0\par
+- ABS nulls: treat as suppressed; avoid imputing without external benchmarks.
+- QCEW nulls: occurs rarely; filter these rows when computing statewide totals.
+- `xx999` rows: include them when reconciling to state-level QCEW totals. Exclude when building map visualizations for true counties.
+\par
+\b 5. Contact\b0\par
+Questions? Contact RDM Datalab (datalab@rdm.org).
+\par
+}

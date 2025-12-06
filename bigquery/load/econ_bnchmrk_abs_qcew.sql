@@ -108,7 +108,7 @@ SELECT
   q.qcew_avg_wkly_wage_usd_amt,
   SAFE_DIVIDE(q.qcew_ttl_ann_wage_usd_amt, q.qcew_ann_avg_emp_lvl_num) AS qcew_wage_per_emp_usd_amt,
   SAFE_DIVIDE(a.abs_payroll_usd_amt, a.abs_emp_num)                     AS abs_wage_per_emp_usd_amt,
-  SAFE_DIVIDE(a.abs_rcpt_usd_amt, a.abs_firm_num)                       AS abs_rcpt_per_firm_usd_amt
+  a.abs_rcpt_per_firm_usd_amt
 FROM abs_filtered AS a
 FULL OUTER JOIN qcew_filtered AS q
   ON a.year_num = q.year_num

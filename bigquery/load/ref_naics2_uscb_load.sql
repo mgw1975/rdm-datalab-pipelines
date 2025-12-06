@@ -1,16 +1,11 @@
-bq query \
-  --use_legacy_sql=false \
+# Load prepared NAICS2 reference CSV into BigQuery.
+# 1. Generate the CSV via `python scripts/refs/prep_ref_naics2.py`
+# 2. Upload it to GCS (example path below), then run:
+
+bq load \
   --replace=true \
-  --destination_table=rdm-datalab-portfolio:portfolio_data.ref_naics2_uscb \
-  '
-WITH base AS (
-  SELECT *
-  FROM `rdm-datalab-portfolio.portfolio_data.ref_naics2_uscb`
-), extras AS (
-  SELECT '00' AS naics2_sector_cd, 'Total for all sectors' AS naics2_sector_desc UNION ALL
-  SELECT '99', 'Unclassified (suppression bucket)'
-)
-SELECT * FROM base
-UNION ALL
-SELECT * FROM extras
-'
+  --source_format=CSV \
+  --skip_leading_rows=1 \
+  rdm-datalab-portfolio:portfolio_data.ref_naics2_uscb \
+  gs://rdm_datalab_portfolio/reference/ref_naics2_uscb.csv \
+  naics2_sector_cd:STRING,naics2_sector_desc:STRING

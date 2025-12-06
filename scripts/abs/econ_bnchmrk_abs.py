@@ -21,6 +21,7 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
+import numpy as np
 import pandas as pd
 import requests
 
@@ -72,17 +73,26 @@ def normalize_abs(df: pd.DataFrame) -> pd.DataFrame:
             "FIRMPDEMP": "abs_firm_num",
             "EMP": "abs_emp_num",
             "PAYANN": "abs_payroll_usd_amt",
-            "RCPPDEMP": "abs_rcpt_per_emp_usd_amt",
+            "RCPPDEMP": "abs_rcpt_usd_amt",
             "state": "state_fips_cd",
             "county": "cnty_fips_cd",
         }
     )
     df = df.loc[:, ~df.columns.duplicated()].copy()
 
-    # The raw feed reports PAYANN in thousands of dollars ($1k), but RCPPDEMP is already
-    # expressed in dollars per employee.
+    # PAYANN/RCPPDEMP come from the API in $1,000s. Convert to dollars and derive
+    # receipts-per-employee from the totals.
     df["abs_payroll_usd_amt"] = df["abs_payroll_usd_amt"] * 1000.0
-    df["abs_rcpt_usd_amt"] = df["abs_rcpt_per_emp_usd_amt"] * df["abs_emp_num"]
+    df["abs_rcpt_usd_amt"] = df["abs_rcpt_usd_amt"] * 1000.0
+
+    emp_denom = df["abs_emp_num"].replace({0: np.nan})
+    firm_denom = df["abs_firm_num"].replace({0: np.nan})
+
+    per_emp = (df["abs_rcpt_usd_amt"] / emp_denom).round(6)
+    df["abs_rcpt_per_emp_usd_amt"] = per_emp.astype(float)
+
+    per_firm = (df["abs_rcpt_usd_amt"] / firm_denom).round(6)
+    df["abs_rcpt_per_firm_usd_amt"] = per_firm.astype(float)
 
     # Build the canonical 5-digit FIPS string (state + county).
     df["state_fips_cd"] = df["state_fips_cd"].str.zfill(2)
@@ -102,6 +112,7 @@ def normalize_abs(df: pd.DataFrame) -> pd.DataFrame:
         "abs_payroll_usd_amt",
         "abs_rcpt_usd_amt",
         "abs_rcpt_per_emp_usd_amt",
+        "abs_rcpt_per_firm_usd_amt",
     ]
     df = df[columns].sort_values(
         ["year_num", "state_cnty_fips_cd", "naics2_sector_cd"]
