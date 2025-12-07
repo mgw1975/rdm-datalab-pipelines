@@ -7,13 +7,13 @@ WITH abs_filtered AS (
   SELECT *
   FROM `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs`
   WHERE ind_level_num = 2
-    AND CAST(naics2_sector_cd AS STRING) NOT IN ("00","99")
+    AND CAST(naics2_sector_cd AS STRING) != "00"
     AND REGEXP_CONTAINS(state_cnty_fips_cd, r"^\d{5}$")
 ),
 qcew_filtered AS (
   SELECT *
   FROM `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_qcew`
-  WHERE CAST(naics2_sector_cd AS STRING) NOT IN ("00","99")
+  WHERE CAST(naics2_sector_cd AS STRING) != "00"
     AND REGEXP_CONTAINS(state_cnty_fips_cd, r"^\d{5}$")
 ),
 state_lookup AS (
