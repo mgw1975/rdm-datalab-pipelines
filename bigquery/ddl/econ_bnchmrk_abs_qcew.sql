@@ -28,5 +28,20 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
   -- Derived metrics
   qcew_wage_per_emp_usd_amt  NUMERIC,
   abs_wage_per_emp_usd_amt   NUMERIC,
-  abs_rcpt_per_firm_usd_amt  NUMERIC
+  abs_rcpt_per_firm_usd_amt  NUMERIC,
+
+  -- State totals (non-additive context)
+  state_abs_firm_num              INT64,
+  state_abs_emp_num               INT64,
+  state_abs_payroll_usd_amt       NUMERIC,
+  state_abs_rcpt_usd_amt          NUMERIC,
+  state_qcew_ann_avg_emp_lvl_num  INT64,
+  state_qcew_ttl_ann_wage_usd_amt NUMERIC,
+
+  state_abs_firm_rank_num          INT64,
+  state_abs_emp_rank_num           INT64,
+  state_abs_payroll_rank_num       INT64,
+  state_abs_rcpt_rank_num          INT64,
+  state_qcew_emp_rank_num          INT64,
+  state_qcew_wage_rank_num         INT64
 );
