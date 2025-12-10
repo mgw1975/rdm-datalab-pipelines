@@ -7,5 +7,7 @@ CREATE TABLE `rdm-datalab-portfolio.portfolio_data.ref_state_cnty_uscb`
   land_area_num INT64 OPTIONS(description="Land area (square meters)"),
   water_area_num INT64 OPTIONS(description="Water area (square meters)"),
   lat_num FLOAT64 OPTIONS(description="Latitude of internal point"),
-  long_num FLOAT64 OPTIONS(description="Longitude of internal point")
+  long_num FLOAT64 OPTIONS(description="Longitude of internal point"),
+  population_num INT64 OPTIONS(description="Population count from ACS"),
+  population_year INT64 OPTIONS(description="ACS population vintage year")
 );

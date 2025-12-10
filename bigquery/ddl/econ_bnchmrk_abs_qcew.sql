@@ -12,6 +12,8 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
   cnty_full_nm               STRING,
   geo_id                     STRING,
   ind_level_num              INT64,
+  population_num             INT64,
+  population_year            INT64,
 
   -- ABS measures
   abs_firm_num               INT64,
