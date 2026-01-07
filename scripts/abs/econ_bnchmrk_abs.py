@@ -5,8 +5,8 @@ ABS county × NAICS2 benchmarking extract.
 Usage:
   python scripts/abs/econ_bnchmrk_abs.py \
       --years 2022 2023 \
-      --out_csv data_clean/abs/econ_bnchmrk_abs.csv
-  # Manual step: upload econ_bnchmrk_abs.csv to GCS after inspecting output
+      --out_csv data_clean/abs/econ_bnchmrk_abs_multiyear.csv
+  # Manual step: upload econ_bnchmrk_abs_multiyear.csv to GCS after inspecting output
 
 Mirrors notebooks/abs/econ_bnchmrk_2022_abs.ipynb:
   * Pulls 2-digit NAICS ABS data from the Census API.
@@ -84,6 +84,28 @@ def fetch_abs(year: int) -> pd.DataFrame:
     df = pd.DataFrame(rows, columns=header)
     df["year_num"] = year
     return df
+
+
+def filter_abs_private_employer(df: pd.DataFrame, year: int) -> pd.DataFrame:
+    """
+    Align raw ABS universe with QCEW by keeping employer firms (FIRMPDEMP > 0)
+    and dropping Public Administration (NAICS 92). NAICS 99 remains.
+    """
+    filtered = df.copy()
+    filtered["FIRMPDEMP"] = pd.to_numeric(filtered["FIRMPDEMP"], errors="coerce")
+    before = len(filtered)
+    filtered = filtered[filtered["FIRMPDEMP"] > 0]
+
+    cfg = year_config(year)
+    naics_field = cfg["naics_field"]
+    filtered[naics_field] = filtered[naics_field].astype(str).str.strip()
+    filtered = filtered[filtered[naics_field] != "92"]
+    after = len(filtered)
+    print(
+        f"[ABS] Filtered employer-only & private sectors for {year}: "
+        f"{before:,} → {after:,} rows."
+    )
+    return filtered
 
 
 def normalize_abs(df: pd.DataFrame, year: int) -> pd.DataFrame:
@@ -198,6 +220,7 @@ def main() -> None:
 
     for year in years:
         raw = fetch_abs(year)
+        raw = filter_abs_private_employer(raw, year)
         df = normalize_abs(raw, year)
         per_year_path = Path(per_year_template.format(year=year))
         per_year_path.parent.mkdir(parents=True, exist_ok=True)

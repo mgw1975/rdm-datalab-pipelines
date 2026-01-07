@@ -115,84 +115,213 @@
         FROM `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_qcew_state_ttl`
         WHERE CAST(naics2_sector_cd AS STRING) != "00"
       )
+    ),
+    base_rows AS (
+      SELECT
+        COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd) AS state_cnty_fips_cd,
+        COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)     AS naics2_sector_cd,
+        COALESCE(a.year_num, q.year_num)                     AS year_num,
+        COALESCE(n.naics2_sector_desc, a.naics2_sector_desc, q.naics2_sector_cd) AS naics2_sector_desc,
+        COALESCE(g.cnty_nm, a.cnty_nm) AS cnty_nm,
+        g.state_nm,
+        g.cnty_full_nm,
+        g.population_num,
+        g.population_year,
+        a.geo_id,
+        a.ind_level_num,
+        a.abs_firm_num,
+        LAG(a.abs_firm_num) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS abs_firm_prev_year_num,
+        a.abs_emp_num,
+        LAG(a.abs_emp_num) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS abs_emp_prev_year_num,
+        a.abs_payroll_usd_amt,
+        LAG(a.abs_payroll_usd_amt) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS abs_payroll_prev_year_usd_amt,
+        a.abs_rcpt_usd_amt,
+        LAG(a.abs_rcpt_usd_amt) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS abs_rcpt_prev_year_usd_amt,
+        a.abs_rcpt_per_emp_usd_amt,
+        q.qcew_ann_avg_emp_lvl_num,
+        LAG(q.qcew_ann_avg_emp_lvl_num) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS qcew_ann_avg_emp_prev_year_num,
+        q.qcew_ttl_ann_wage_usd_amt,
+        LAG(q.qcew_ttl_ann_wage_usd_amt) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS qcew_ttl_ann_wage_prev_year_usd_amt,
+        q.qcew_avg_wkly_wage_usd_amt,
+        SAFE_DIVIDE(q.qcew_ttl_ann_wage_usd_amt, q.qcew_ann_avg_emp_lvl_num) AS qcew_wage_per_emp_usd_amt,
+        SAFE_DIVIDE(a.abs_payroll_usd_amt, a.abs_emp_num)                     AS abs_wage_per_emp_usd_amt,
+        a.abs_rcpt_per_firm_usd_amt,
+        SUM(IFNULL(a.abs_firm_num, 0)) OVER (
+          PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                       COALESCE(a.year_num, q.year_num)
+        ) AS cnty_abs_firm_num,
+        SAFE_DIVIDE(
+          a.abs_firm_num,
+          SUM(IFNULL(a.abs_firm_num, 0)) OVER (
+            PARTITION BY COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd),
+                         COALESCE(a.year_num, q.year_num)
+          )
+        ) AS cnty_firm_share,
+        s.state_abs_firm_num,
+        LAG(s.state_abs_firm_num) OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS state_abs_firm_prev_year_num,
+        s.state_abs_emp_num,
+        LAG(s.state_abs_emp_num) OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS state_abs_emp_prev_year_num,
+        s.state_abs_payroll_usd_amt,
+        LAG(s.state_abs_payroll_usd_amt) OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS state_abs_payroll_prev_year_usd_amt,
+        s.state_abs_rcpt_usd_amt,
+        LAG(s.state_abs_rcpt_usd_amt) OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS state_abs_rcpt_prev_year_usd_amt,
+        s.state_qcew_ann_avg_emp_lvl_num,
+        LAG(s.state_qcew_ann_avg_emp_lvl_num) OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS state_qcew_ann_avg_emp_prev_year_num,
+        s.state_qcew_ttl_ann_wage_usd_amt,
+        LAG(s.state_qcew_ttl_ann_wage_usd_amt) OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                       COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY COALESCE(a.year_num, q.year_num)
+        ) AS state_qcew_ttl_ann_wage_prev_year_usd_amt,
+        RANK() OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                      COALESCE(a.year_num, q.year_num),
+                      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY a.abs_firm_num DESC
+        ) AS state_abs_firm_rank_num,
+        RANK() OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                      COALESCE(a.year_num, q.year_num),
+                      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY a.abs_emp_num DESC
+        ) AS state_abs_emp_rank_num,
+        RANK() OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                      COALESCE(a.year_num, q.year_num),
+                      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY a.abs_payroll_usd_amt DESC
+        ) AS state_abs_payroll_rank_num,
+        RANK() OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                      COALESCE(a.year_num, q.year_num),
+                      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY a.abs_rcpt_usd_amt DESC
+        ) AS state_abs_rcpt_rank_num,
+        RANK() OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                      COALESCE(a.year_num, q.year_num),
+                      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY q.qcew_ann_avg_emp_lvl_num DESC
+        ) AS state_qcew_emp_rank_num,
+        RANK() OVER (
+          PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
+                      COALESCE(a.year_num, q.year_num),
+                      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
+          ORDER BY q.qcew_ttl_ann_wage_usd_amt DESC
+        ) AS state_qcew_wage_rank_num
+      FROM abs_filtered AS a
+      FULL OUTER JOIN qcew_filtered AS q
+        ON a.year_num = q.year_num
+       AND a.state_cnty_fips_cd = q.state_cnty_fips_cd
+       AND a.naics2_sector_cd = q.naics2_sector_cd
+      LEFT JOIN geo_ref AS g
+        ON COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd) = g.state_cnty_fips_cd
+      LEFT JOIN naics_ref AS n
+        ON COALESCE(a.naics2_sector_cd, q.naics2_sector_cd) = n.naics2_sector_cd
+      LEFT JOIN state_ttl AS s
+        ON SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2) = s.state_fips_cd
+       AND COALESCE(a.naics2_sector_cd, q.naics2_sector_cd) = s.naics2_sector_cd
+       AND COALESCE(a.year_num, q.year_num) = s.year_num
     )
     SELECT
-      COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd) AS state_cnty_fips_cd,
-      COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)     AS naics2_sector_cd,
-      COALESCE(a.year_num, q.year_num)                     AS year_num,
-      COALESCE(n.naics2_sector_desc, a.naics2_sector_desc, q.naics2_sector_cd) AS naics2_sector_desc,
-      COALESCE(g.cnty_nm, a.cnty_nm) AS cnty_nm,
-      g.state_nm,
-      g.cnty_full_nm,
-      g.population_num,
-      g.population_year,
-      a.geo_id,
-      a.ind_level_num,
-      a.abs_firm_num,
-      a.abs_emp_num,
-      a.abs_payroll_usd_amt,
-      a.abs_rcpt_usd_amt,
-      a.abs_rcpt_per_emp_usd_amt,
-      q.qcew_ann_avg_emp_lvl_num,
-      q.qcew_ttl_ann_wage_usd_amt,
-      q.qcew_avg_wkly_wage_usd_amt,
-      SAFE_DIVIDE(q.qcew_ttl_ann_wage_usd_amt, q.qcew_ann_avg_emp_lvl_num) AS qcew_wage_per_emp_usd_amt,
-      SAFE_DIVIDE(a.abs_payroll_usd_amt, a.abs_emp_num)                     AS abs_wage_per_emp_usd_amt,
-      a.abs_rcpt_per_firm_usd_amt,
-      s.state_abs_firm_num,
-      s.state_abs_emp_num,
-      s.state_abs_payroll_usd_amt,
-      s.state_abs_rcpt_usd_amt,
-      s.state_qcew_ann_avg_emp_lvl_num,
-      s.state_qcew_ttl_ann_wage_usd_amt,
-      RANK() OVER (
-        PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
-                    COALESCE(a.year_num, q.year_num),
-                    COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
-        ORDER BY a.abs_firm_num DESC
-      ) AS state_abs_firm_rank_num,
-      RANK() OVER (
-        PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
-                    COALESCE(a.year_num, q.year_num),
-                    COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
-        ORDER BY a.abs_emp_num DESC
-      ) AS state_abs_emp_rank_num,
-      RANK() OVER (
-        PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
-                    COALESCE(a.year_num, q.year_num),
-                    COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
-        ORDER BY a.abs_payroll_usd_amt DESC
-      ) AS state_abs_payroll_rank_num,
-      RANK() OVER (
-        PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
-                    COALESCE(a.year_num, q.year_num),
-                    COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
-        ORDER BY a.abs_rcpt_usd_amt DESC
-      ) AS state_abs_rcpt_rank_num,
-      RANK() OVER (
-        PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
-                    COALESCE(a.year_num, q.year_num),
-                    COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
-        ORDER BY q.qcew_ann_avg_emp_lvl_num DESC
-      ) AS state_qcew_emp_rank_num,
-      RANK() OVER (
-        PARTITION BY SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2),
-                    COALESCE(a.year_num, q.year_num),
-                    COALESCE(a.naics2_sector_cd, q.naics2_sector_cd)
-        ORDER BY q.qcew_ttl_ann_wage_usd_amt DESC
-      ) AS state_qcew_wage_rank_num
-    FROM abs_filtered AS a
-    FULL OUTER JOIN qcew_filtered AS q
-      ON a.year_num = q.year_num
-    AND a.state_cnty_fips_cd = q.state_cnty_fips_cd
-    AND a.naics2_sector_cd = q.naics2_sector_cd
-    LEFT JOIN geo_ref AS g
-      ON COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd) = g.state_cnty_fips_cd
-    LEFT JOIN naics_ref AS n
-      ON COALESCE(a.naics2_sector_cd, q.naics2_sector_cd) = n.naics2_sector_cd
-    LEFT JOIN state_ttl AS s
-      ON SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 1, 2) = s.state_fips_cd
-    AND COALESCE(a.naics2_sector_cd, q.naics2_sector_cd) = s.naics2_sector_cd
-    AND COALESCE(a.year_num, q.year_num) = s.year_num
-    WHERE SUBSTR(COALESCE(a.state_cnty_fips_cd, q.state_cnty_fips_cd), 3, 3) <> "000";
+      b.state_cnty_fips_cd,
+      b.naics2_sector_cd,
+      b.year_num,
+      b.naics2_sector_desc,
+      b.cnty_nm,
+      b.state_nm,
+      b.cnty_full_nm,
+      b.population_num,
+      b.population_year,
+      b.geo_id,
+      b.ind_level_num,
+      b.abs_firm_num,
+      b.abs_firm_prev_year_num,
+      b.abs_emp_num,
+      b.abs_emp_prev_year_num,
+      b.abs_payroll_usd_amt,
+      b.abs_payroll_prev_year_usd_amt,
+      b.abs_rcpt_usd_amt,
+      b.abs_rcpt_prev_year_usd_amt,
+      b.abs_rcpt_per_emp_usd_amt,
+      b.cnty_abs_firm_num,
+      LAG(b.cnty_abs_firm_num) OVER (
+        PARTITION BY b.state_cnty_fips_cd
+        ORDER BY b.year_num
+      ) AS cnty_abs_firm_prev_year_num,
+      SUM(POWER(b.cnty_firm_share, 2)) OVER (
+        PARTITION BY b.state_cnty_fips_cd, b.year_num
+      ) AS cnty_firm_cncntrtn_idx,
+      b.qcew_ann_avg_emp_lvl_num,
+      b.qcew_ann_avg_emp_prev_year_num,
+      b.qcew_ttl_ann_wage_usd_amt,
+      b.qcew_ttl_ann_wage_prev_year_usd_amt,
+      b.qcew_avg_wkly_wage_usd_amt,
+      b.qcew_wage_per_emp_usd_amt,
+      b.abs_wage_per_emp_usd_amt,
+      b.abs_rcpt_per_firm_usd_amt,
+      b.state_abs_firm_num,
+      b.state_abs_firm_prev_year_num,
+      b.state_abs_emp_num,
+      b.state_abs_emp_prev_year_num,
+      b.state_abs_payroll_usd_amt,
+      b.state_abs_payroll_prev_year_usd_amt,
+      b.state_abs_rcpt_usd_amt,
+      b.state_abs_rcpt_prev_year_usd_amt,
+      b.state_qcew_ann_avg_emp_lvl_num,
+      b.state_qcew_ann_avg_emp_prev_year_num,
+      b.state_qcew_ttl_ann_wage_usd_amt,
+      b.state_qcew_ttl_ann_wage_prev_year_usd_amt,
+      b.state_abs_firm_rank_num,
+      b.state_abs_emp_rank_num,
+      b.state_abs_payroll_rank_num,
+      b.state_abs_rcpt_rank_num,
+      b.state_qcew_emp_rank_num,
+      b.state_qcew_wage_rank_num
+    FROM base_rows AS b
+    WHERE SUBSTR(b.state_cnty_fips_cd, 3, 3) <> "000";
     '
