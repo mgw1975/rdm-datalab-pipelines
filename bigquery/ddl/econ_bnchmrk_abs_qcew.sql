@@ -10,19 +10,31 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
   cnty_nm                    STRING,
   state_nm                   STRING,
   cnty_full_nm               STRING,
+  population_num             INT64,
+  population_year            INT64,
   geo_id                     STRING,
   ind_level_num              INT64,
 
   -- ABS measures
   abs_firm_num               INT64,
+  abs_firm_prev_year_num     INT64,
   abs_emp_num                INT64,
+  abs_emp_prev_year_num      INT64,
   abs_payroll_usd_amt        NUMERIC,
+  abs_payroll_prev_year_usd_amt NUMERIC,
   abs_rcpt_usd_amt           NUMERIC,
+  abs_rcpt_prev_year_usd_amt NUMERIC,
   abs_rcpt_per_emp_usd_amt   NUMERIC,
+  cnty_abs_firm_num          INT64,
+  cnty_abs_firm_prev_year_num INT64,
+  cnty_abs_rcpt_usd_amt      NUMERIC,
+  cnty_firm_cncntrtn_idx     NUMERIC,
 
   -- QCEW measures
   qcew_ann_avg_emp_lvl_num   INT64,
+  qcew_ann_avg_emp_prev_year_num INT64,
   qcew_ttl_ann_wage_usd_amt  NUMERIC,
+  qcew_ttl_ann_wage_prev_year_usd_amt NUMERIC,
   qcew_avg_wkly_wage_usd_amt NUMERIC,
 
   -- Derived metrics
@@ -32,11 +44,17 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
 
   -- State totals (non-additive context)
   state_abs_firm_num              INT64,
+  state_abs_firm_prev_year_num    INT64,
   state_abs_emp_num               INT64,
+  state_abs_emp_prev_year_num     INT64,
   state_abs_payroll_usd_amt       NUMERIC,
+  state_abs_payroll_prev_year_usd_amt NUMERIC,
   state_abs_rcpt_usd_amt          NUMERIC,
+  state_abs_rcpt_prev_year_usd_amt NUMERIC,
   state_qcew_ann_avg_emp_lvl_num  INT64,
+  state_qcew_ann_avg_emp_prev_year_num INT64,
   state_qcew_ttl_ann_wage_usd_amt NUMERIC,
+  state_qcew_ttl_ann_wage_prev_year_usd_amt NUMERIC,
 
   state_abs_firm_rank_num          INT64,
   state_abs_emp_rank_num           INT64,

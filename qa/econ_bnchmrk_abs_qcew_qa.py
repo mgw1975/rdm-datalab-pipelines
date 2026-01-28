@@ -19,8 +19,9 @@ import pandas as pd
 # Configuration
 # ---------------------------------------------------------------------------
 # Base datasets used for QA
-ABS_PATH = Path("data_clean/abs/econ_bnchmrk_abs.csv")
-QCEW_PATH = Path("data_clean/qcew/econ_bnchmrk_qcew.csv")
+ABS_PATH = Path("data_clean/abs/econ_bnchmrk_abs_multiyear.csv")
+QCEW_PATH = Path("data_clean/qcew/econ_bnchmrk_qcew_multiyear.csv")
+MVP_YEARS = {2022, 2023}
 SIMPLEMAPS_PATH = Path("data_raw/external/simplemaps/simplemaps_uscounties_basicv1.91/uscounties.csv")
 LOG_PATH = Path("outputs/qa/econ_bnchmrk_abs_qcew_qa.log")
 FIPS_FAIL_PATH = Path("outputs/qa/econ_bnchmrk_abs_qcew_invalid_fips.csv")
@@ -136,6 +137,10 @@ def load_dataset() -> pd.DataFrame:
     # Use primary NAICS fields only
     df["naics2_sector_cd"] = df["naics2_sector_cd"].astype(str).str.zfill(2)
     df["year_num"] = df["year_num"].astype("Int64")
+
+    extra_years = set(df["year_num"].dropna().unique()) - MVP_YEARS
+    if extra_years:
+        log(f"[WARN] Found non-MVP years in dataset: {sorted(extra_years)} (expected {sorted(MVP_YEARS)})")
 
     # Derive missing ratios from base values
     df["abs_rcpt_per_emp_usd_amt"] = df["abs_rcpt_usd_amt"] / df["abs_emp_num"].replace(
