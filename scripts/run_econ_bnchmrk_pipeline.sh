@@ -44,12 +44,12 @@ run_abs() {
     --out_csv "${ABS_OUT}"
 }
 
-run_merge() {
-  log "Merging ABS + QCEW extracts"
-  python scripts/integration/econ_bnchmrk_abs_qcew_merge.py \
-    --years "${YEAR_ARR[@]}" \
-    --out "${MERGED_OUT}"
-}
+#run_merge() {
+#  log "Merging ABS + QCEW extracts"
+#  python scripts/integration/econ_bnchmrk_abs_qcew_merge.py \
+#    --years "${YEAR_ARR[@]}" \
+#    --out "${MERGED_OUT}"
+#}
 
 run_qa() {
   log "Executing QA checks"
@@ -58,7 +58,7 @@ run_qa() {
 
 run_qcew
 run_abs
-run_merge
+#un_merge
 run_qa
 
 log "Pipeline artifacts ready:"

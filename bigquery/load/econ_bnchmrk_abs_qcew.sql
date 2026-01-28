@@ -293,6 +293,9 @@
         PARTITION BY b.state_cnty_fips_cd
         ORDER BY b.year_num
       ) AS cnty_abs_firm_prev_year_num,
+      SUM(IFNULL(b.abs_rcpt_usd_amt, 0)) OVER (
+        PARTITION BY b.state_cnty_fips_cd, b.year_num
+      ) AS cnty_abs_rcpt_usd_amt,
       SUM(POWER(b.cnty_firm_share, 2)) OVER (
         PARTITION BY b.state_cnty_fips_cd, b.year_num
       ) AS cnty_firm_cncntrtn_idx,

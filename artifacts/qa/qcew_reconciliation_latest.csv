@@ -1,0 +1,3 @@
+year_num,state_cnty_fips_cd,state_fips,county_fips,naics2_sector_cd,source_qcew_annual_avg_emplvl,source_qcew_total_annual_wages_usd,source_qcew_avg_weekly_wage_usd,rdm_qcew_emp,rdm_qcew_wages_usd,rdm_qcew_avg_weekly_wage_usd,delta_emp,delta_wages_usd,delta_avg_weekly_wage_usd,delta_emp_pct,delta_wages_pct,delta_avg_weekly_wage_pct,pass_emp,pass_wages,pass_avg_weekly_wage,pass_all,notes
+2022,06075,06,075,42,100.0,5200000.0,1000.0,,,,,,,,,,,,,False,missing_from_rdm
+2022,06085,06,085,62,,,,,,,,,,,,,,,,,source_suppressed;missing_from_both

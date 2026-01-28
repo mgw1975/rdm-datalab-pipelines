@@ -10,10 +10,10 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
   cnty_nm                    STRING,
   state_nm                   STRING,
   cnty_full_nm               STRING,
-  geo_id                     STRING,
-  ind_level_num              INT64,
   population_num             INT64,
   population_year            INT64,
+  geo_id                     STRING,
+  ind_level_num              INT64,
 
   -- ABS measures
   abs_firm_num               INT64,
@@ -27,6 +27,7 @@ CREATE OR REPLACE TABLE `rdm-datalab-portfolio.portfolio_data.econ_bnchmrk_abs_q
   abs_rcpt_per_emp_usd_amt   NUMERIC,
   cnty_abs_firm_num          INT64,
   cnty_abs_firm_prev_year_num INT64,
+  cnty_abs_rcpt_usd_amt      NUMERIC,
   cnty_firm_cncntrtn_idx     NUMERIC,
 
   -- QCEW measures

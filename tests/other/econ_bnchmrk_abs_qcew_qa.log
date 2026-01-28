@@ -1,0 +1,85 @@
+[LOAD] Reading ABS + QCEW CSVs …
+[QA] Structural Integrity: FIPS
+  ✓ FIPS validation passed.
+[QA] Structural Integrity: NAICS2
+  - NAICS codes not found in reference: 6294
+    → Details written to outputs/qa/econ_bnchmrk_abs_qcew_invalid_naics.csv
+[QA] Structural Integrity: Year coverage
+  • Year range: 2022 – 2023 (2 unique)
+  ✓ Year coverage OK.
+[QA] Row uniqueness violation count (excluding statewide totals): 6292
+[QA] Numeric checks
+  - abs_wage_per_emp_usd out-of-range rows: 436
+  - abs_rcpt_per_firm_usd out-of-range rows: 206
+[QA] Cross-source consistency
+[QA] Coverage comparisons
+  • ABS rows lacking QCEW data: 93447
+  • QCEW rows lacking ABS data: 6294
+[QA] Distribution summaries
+  • abs_wage_per_emp_usd quantiles: {0.01: 12500.0, 0.05: 18499.73021582734, 0.95: 111114.60530267269, 0.99: 156425.93814819894}
+  • Top 20 z-score outliers for abs_wage_per_emp_usd:
+30653    69.124816
+67546    45.564955
+23156    22.716199
+81864    20.873071
+88584    18.068873
+74398    17.925215
+7406     16.956552
+82643    16.028934
+62271    15.506962
+76888    15.396840
+62485    14.649820
+52053    14.304478
+78120    13.198877
+9930     12.925927
+79229    12.111274
+34749    11.891592
+60449    11.755117
+94117    11.555023
+58964    10.869485
+60216    10.543670
+  • qcew_wage_per_emp_usd quantiles: {0.01: 34325.772056895556, 0.05: 38143.73750158039, 0.95: 70904.83769537212, 0.99: 89573.85995638683}
+  • Top 20 z-score outliers for qcew_wage_per_emp_usd:
+58954    10.914995
+58920    10.881986
+4178     10.308537
+58869    10.245817
+4138      9.487511
+4079      9.408431
+81564     9.370203
+32800     9.312214
+56892     6.699163
+21853     6.503465
+72965     6.485498
+97186     6.140056
+95141     5.916436
+60276     5.908503
+1599      5.835200
+95568     5.620589
+52438     5.566912
+5812      5.558548
+49877     5.360664
+50409     5.328536
+  • abs_rcpt_per_firm_usd quantiles: {0.01: 0.0, 0.05: 242994.73684210528, 0.95: 42068912.49999997, 0.99: 139998412.06557384}
+  • Top 20 z-score outliers for abs_rcpt_per_firm_usd:
+19848    149.486657
+95574    101.742322
+29844     75.680155
+75236     29.625893
+20524     27.009103
+71338     21.750072
+1618      19.647814
+49478     18.706297
+31543     17.433851
+53016     16.971814
+45984     16.970081
+20474     16.314539
+54171     16.299924
+29816     16.258224
+11988     13.229031
+35942     12.887899
+30832     12.839705
+48149     11.814768
+8255      11.496541
+80552     11.315336
+[QA SUMMARY] Overall: FAIL (issues found: 13228)

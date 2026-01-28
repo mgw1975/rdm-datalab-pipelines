@@ -1,0 +1,23 @@
+Reason counts
+                         count
+reason                        
+name_not_found             278
+state_not_in_simplemaps     92
+
+State counts (reason columns)
+reason    name_not_found  state_not_in_simplemaps
+state_cd                                         
+LA                   133                        0
+VA                    56                        0
+AK                    36                        0
+CT                    33                        0
+MD                     6                        0
+MO                     5                        0
+NM                     5                        0
+NV                     2                        0
+WI                     2                        0
+PR                     0                       78
+VI                     0                        7
+GU                     0                        4
+MP                     0                        2
+AS                     0                        1

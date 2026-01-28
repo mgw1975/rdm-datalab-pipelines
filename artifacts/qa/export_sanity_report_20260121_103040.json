@@ -1,0 +1,232 @@
+{
+  "run_timestamp": "2026-01-21T10:30:40",
+  "inputs": {
+    "fact": "outputs/econ_bnchmrk_abs_qcew",
+    "naics": "outputs/ref_naics2_uscb",
+    "county": "outputs/ref_state_cnty_uscb"
+  },
+  "summary": {
+    "error_passed": 23,
+    "error_failed": 0,
+    "warn_passed": 10,
+    "warn_failed": 2
+  },
+  "checks": [
+    {
+      "name": "fact: CSV parses cleanly",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Parsed without malformed rows."
+    },
+    {
+      "name": "fact: delimiter sanity",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Parsed 50 columns."
+    },
+    {
+      "name": "fact: non-empty headers",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All column names present."
+    },
+    {
+      "name": "fact: unique headers",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Column names are unique."
+    },
+    {
+      "name": "naics: CSV parses cleanly",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Parsed without malformed rows."
+    },
+    {
+      "name": "naics: delimiter sanity",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Parsed 2 columns."
+    },
+    {
+      "name": "naics: non-empty headers",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All column names present."
+    },
+    {
+      "name": "naics: unique headers",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Column names are unique."
+    },
+    {
+      "name": "county: CSV parses cleanly",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Parsed without malformed rows."
+    },
+    {
+      "name": "county: delimiter sanity",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Parsed 10 columns."
+    },
+    {
+      "name": "county: non-empty headers",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All column names present."
+    },
+    {
+      "name": "county: unique headers",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "Column names are unique."
+    },
+    {
+      "name": "fact: required columns",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All required columns present."
+    },
+    {
+      "name": "naics: required columns",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All required columns present."
+    },
+    {
+      "name": "county: required columns",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All required columns present."
+    },
+    {
+      "name": "fact: state_cnty_fips_cd format",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All FIPS codes are 5 digits."
+    },
+    {
+      "name": "fact: year_num parse",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All year_num values parse numeric."
+    },
+    {
+      "name": "fact: year_num integer",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All year_num values are integers."
+    },
+    {
+      "name": "fact: year_num expected set",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "Only expected years present."
+    },
+    {
+      "name": "fact: naics2_sector_cd non-null",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "NAICS2 codes present."
+    },
+    {
+      "name": "fact: numeric parse summary",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "Numeric columns parsed (see report)."
+    },
+    {
+      "name": "fact: naics2_sector_cd set",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "NAICS2 codes match reference."
+    },
+    {
+      "name": "fact: duplicate keys",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "No duplicate keys."
+    },
+    {
+      "name": "join: fact -> county",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All fact FIPS found in county ref."
+    },
+    {
+      "name": "join: county extra keys",
+      "severity": "WARN",
+      "passed": false,
+      "detail": "56 county keys unused by fact."
+    },
+    {
+      "name": "join: fact -> naics",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "All fact NAICS codes in naics ref."
+    },
+    {
+      "name": "join: naics extra keys",
+      "severity": "WARN",
+      "passed": false,
+      "detail": "2 naics keys unused by fact."
+    },
+    {
+      "name": "coverage: distinct counties 2022",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "3283 counties (expected 3283)."
+    },
+    {
+      "name": "coverage: distinct counties 2023",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "3283 counties (expected 3283)."
+    },
+    {
+      "name": "coverage: distinct naics2 2022",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "20 NAICS2 codes (expected 20)."
+    },
+    {
+      "name": "coverage: distinct naics2 2023",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "20 NAICS2 codes (expected 20)."
+    },
+    {
+      "name": "coverage: partial ABS rows",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "No partial ABS rows."
+    },
+    {
+      "name": "fact: negative firms/emp",
+      "severity": "ERROR",
+      "passed": true,
+      "detail": "No negative firm/emp values."
+    },
+    {
+      "name": "fact: negative dollar values",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "No negative dollar values."
+    },
+    {
+      "name": "formatting: scientific notation strings",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "No scientific notation strings."
+    },
+    {
+      "name": "outliers: sample top 10",
+      "severity": "WARN",
+      "passed": true,
+      "detail": "Outliers sampled in report."
+    }
+  ]
+}
